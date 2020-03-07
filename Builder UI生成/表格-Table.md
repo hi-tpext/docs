@@ -88,8 +88,9 @@ btnImport($afterSuccessUrl, $acceptedExts = "rar,zip,doc,docx,xls,xlsx,ppt,pptx,
 ```
 >其他，如果上面的不改用，你可以自己添加
 
-添加一个链接，打开$ulr
->btnLink($url, $label = '', $class = 'btn-secondary', $icon = 'mdi-checkbox-marked-outline', $attr = '')
+```php
+//添加一个链接，打开$ulr
+btnLink($url, $label = '', $class = 'btn-secondary', $icon = 'mdi-checkbox-marked-outline', $attr = '')
 
-添加一个批量操作，自动附带多选框选中的id只post到`$url`，`$confirm` 批量操作前是否显示确认提示框。
->btnPostChecked($url, $label = '', $class = 'btn-secondary', $icon = 'mdi-checkbox-marked-outline', $attr = '', $confirm = true)
+//添加一个批量操作，自动附带多选框选中的id只post到`$url`，`$confirm` 批量操作前是否显示确认提示框。
+btnPostChecked($url, $label = '', $class = 'btn-secondary', $icon = 'mdi-checkbox-marked-outline', $attr = '', $confirm = true)
