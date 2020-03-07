@@ -61,7 +61,7 @@ btnAdd / btnDelete / btnRefresh
 >禁用
 
 ```php
-$table->useLayer(false);
+$table->useToolbar(false);
 ```
 
 >手动设置
