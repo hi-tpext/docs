@@ -83,3 +83,13 @@ matches($name, $label = '', $cloSize = 12, $colClass = '', $colAttr = '')
 >required()   必填(主要是前端js验证，不涉及后端)
 
 >showLabel()  是否显示label
+
+>default()    默认值
+
+>value()      设置值
+
+>fill()       填充
+
+##### 多选单选
+
+>options()
