@@ -1,4 +1,4 @@
->支持的组件：
+###### 支持的组件：
 ```php
 field($name, $label = '', $cloSize = 12, $colClass = '', $colAttr = '')
 text($name, $label = '', $cloSize = 12, $colClass = '', $colAttr = '')
@@ -44,3 +44,14 @@ match($name, $label = '', $cloSize = 12, $colClass = '', $colAttr = '')
 matches($name, $label = '', $cloSize = 12, $colClass = '', $colAttr = '')
  */
 ```
+###### 参数说明
+
+>$name 字段名称 必填
+
+>$label     显示label ，不填则取name值
+
+>$cloSize   col-md-大小，默认:12
+
+>$colClass  col其他class
+
+>$colAttr   col其他attr
