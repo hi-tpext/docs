@@ -42,7 +42,6 @@ ckeditor($name, $label = '', $cloSize = 12, $colClass = '', $colAttr = '')
 mdeditor($name, $label = '', $cloSize = 12, $colClass = '', $colAttr = '')
 match($name, $label = '', $cloSize = 12, $colClass = '', $colAttr = '')
 matches($name, $label = '', $cloSize = 12, $colClass = '', $colAttr = '')
-```
 ###### 参数说明
 
 >$name 字段名称 必填
