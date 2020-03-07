@@ -55,3 +55,31 @@ matches($name, $label = '', $cloSize = 12, $colClass = '', $colAttr = '')
 >$colClass  col其他class
 
 >$colAttr   col其他attr
+
+##### 主要通用方法
+
+>class()      设置field的class 
+
+>labelClass() 设置label的class 
+
+>attr()       设置field的class 
+
+>addClass()   添加field的class
+
+>addAttr()    添加field的属性
+
+>addStyle()   添加field的style
+
+>labelAttr()  添加label的属性
+
+>size()       设置大小($label,$field)，默认:2,8
+
+>help()       添加帮助信息
+
+>readonly()   只读
+
+>disabled()   禁用
+
+>required()   必填(主要是前端js验证，不涉及后端)
+
+>showLabel()  是否显示label
