@@ -86,7 +86,7 @@ btnDisable($postUrl = '', $label = '禁用', $class = 'btn-warning', $icon = 'md
 btnImport($afterSuccessUrl, $acceptedExts = "rar,zip,doc,docx,xls,xlsx,ppt,pptx,pdf", $fileSize = '20', $label = '导入', $class = 'btn-pink', $icon = 'mdi-cloud-upload', $attr = 'title="上传文件"')
 
 ```
->其他，如果上面的不改用，你可以自己添加
+>其他，如果上面的不够用，你可以自己添加
 
 ```php
 //添加一个链接，打开$ulr
