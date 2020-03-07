@@ -42,6 +42,9 @@ ckeditor($name, $label = '', $cloSize = 12, $colClass = '', $colAttr = '')
 mdeditor($name, $label = '', $cloSize = 12, $colClass = '', $colAttr = '')
 match($name, $label = '', $cloSize = 12, $colClass = '', $colAttr = '')
 matches($name, $label = '', $cloSize = 12, $colClass = '', $colAttr = '')
+//特殊组件
+tab
+step
 ```
 ###### 参数说明
 
@@ -92,3 +95,5 @@ matches($name, $label = '', $cloSize = 12, $colClass = '', $colAttr = '')
 ##### 多选单选
 
 >options()
+##### select
+>dataUrl() ajax加载
