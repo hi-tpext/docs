@@ -209,7 +209,7 @@ btnPostRowid($name = '', $postUrl, $label = '', $class = 'btn-secondary', $icon 
 ```
 
 - `delete|enable|disable`按钮名称，如果是自定义[btnLink/btnPostRowid]则为传入的`$name`.
-- 'hidden' => '__h_del__'，当这一列的`__h_del__`值为真时，这个action会加上`hidden`这个class
+- 'hidden' => '__h_del__'，当这一条记录的`__h_del__`值为真时，这个action会加上`hidden`这个class
 - 同理，可以加上`disabled`
 ```
 'enable' => ['disabled' => '__dis_en__'],
