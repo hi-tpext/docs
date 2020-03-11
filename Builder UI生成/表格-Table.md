@@ -3,6 +3,13 @@
     $builder = Builder::getInstance('用户管理', '列表');
     $table = $builder->table();
 
+    $form = $table->getSearch();
+    $form->text('username', '账号', 3)->maxlength(20);
+    $form->text('name', '姓名', 3)->maxlength(20);
+    $form->text('phone', '手机号', 3)->maxlength(20);
+    $form->text('email', '邮箱', 3)->maxlength(20);
+    $form->select('role_id', '角色组', 3)->options($this->getRoleList());
+
     $table->show('id', 'ID');
     $table->show('username', '登录帐号');
     $table->text('name', '姓名')->autoPost()->getWapper()->addStyle('max-width:80px');
@@ -12,6 +19,13 @@
     $table->show('errors', '登录失败');
     $table->show('create_time', '添加时间')->getWapper()->addStyle('width:180px');
     $table->show('update_time', '修改时间')->getWapper()->addStyle('width:180px');
+
+    $sortOrder = input('__sort__', 'id desc');
+
+    $data = $this->dataModel->where($where)->order($sortOrder)->limit(($page - 1) * $pagezise, $pagezise)->select();
+    $table->data($data);
+    $table->sortOrder($sortOrder);
+    $table->paginator($this->dataModel->where($where)->count(), $pagezise);
 
     if (request()->isAjax()) {
         return $table->partial()->render();
