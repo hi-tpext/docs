@@ -69,6 +69,8 @@ btnAdd / btnDelete / btnRefresh
             ->btnEnable()
             ->btnDisable()
             ->btnDelete()
+            ->btnExport()
+            ->btnExports(['xlxs'=>'xlsx','xls'=>'xls'])
             ->btnRefresh();
 ```
 
@@ -98,6 +100,12 @@ btnDisable($postUrl = '', $label = '禁用', $class = 'btn-warning', $icon = 'md
 
 //导入
 btnImport($afterSuccessUrl, $acceptedExts = "rar,zip,doc,docx,xls,xlsx,ppt,pptx,pdf", $fileSize = '20', $label = '导入', $class = 'btn-pink', $icon = 'mdi-cloud-upload', $attr = 'title="上传文件"')
+
+//导出（默认，点击按钮直接请求后台）
+btnExport($postUrl = '', $label = '导出', $class = 'btn-pink', $icon = 'mdi-export', $attr = 'title="导出"')
+
+//导出（可选，点击弹出菜单，选择导出类型）
+btnExports($items, $postUrl = '', $label = '导出', $class = 'btn-secondary', $icon = 'mdi-export', $attr = 'title="导出"')
 
 ```
 >其他，如果上面的不够用，你可以自己添加
