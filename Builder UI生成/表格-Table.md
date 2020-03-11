@@ -20,6 +20,23 @@
     $table->show('create_time', '添加时间')->getWapper()->addStyle('width:180px');
     $table->show('update_time', '修改时间')->getWapper()->addStyle('width:180px');
 
+    $where = [];
+    if (!empty($searchData['username'])) {
+        $where[] = ['username', 'like', '%' . $searchData['username'] . '%'];
+    }
+    if (!empty($searchData['name'])) {
+        $where[] = ['name', 'like', '%' . $searchData['name'] . '%'];
+    }
+    if (!empty($searchData['phone'])) {
+        $where[] = ['phone', 'like', '%' . $searchData['phone'] . '%'];
+    }
+    if (!empty($searchData['email'])) {
+        $where[] = ['email', 'like', '%' . $searchData['email'] . '%'];
+    }
+    if (!empty($searchData['role_id'])) {
+        $where[] = ['role_id', 'eq', $searchData['role_id']];
+    }
+
     $sortOrder = input('__sort__', 'id desc');
 
     $data = $this->dataModel->where($where)->order($sortOrder)->limit(($page - 1) * $pagezise, $pagezise)->select();
