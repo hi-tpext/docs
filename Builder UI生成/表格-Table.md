@@ -190,9 +190,9 @@ btnEnable($postUrl = '', $label = '', $class = 'btn-success', $icon = 'mdi-check
 btnLink($name = '', $url, $label = '', $class = 'btn-secondary', $icon = '', $attr = '')
 ```
 
-- url('demo', ['id' => '__data.pk__']);
-- 相当于 url('demo', ['id'=>'__data.id__']);
--其他参数：url('demo', ['id' => '__data.id__', 'type' => '__data.type__', 'status' => 1]);
+- `url('demo', ['id' => '__data.pk__']);`
+- `相当于 url('demo', ['id'=>'__data.id__']);`
+-其他参数：`url('demo', ['id' => '__data.id__', 'type' => '__data.type__', 'status' => 1]);`
 ```php
 //添加一个操作，自动附带当前列id参数post到`$postUrl`，`$confirm` 操作前是否显示确认提示框。
 btnPostRowid($name = '', $postUrl, $label = '', $class = 'btn-secondary', $icon = 'mdi-checkbox-marked-outline', $attr = '', $confirm = true)
@@ -212,5 +212,5 @@ btnPostRowid($name = '', $postUrl, $label = '', $class = 'btn-secondary', $icon 
 - 'hidden' => '__h_del__'，当这一条记录的`__h_del__`值为真时，这个action会加上`hidden`这个class
 - 同理，可以加上`disabled`
 ```
-'enable' => ['disabled' => '__dis_en__'],
+`'enable' => ['disabled' => '__dis_en__'],`
 ```
