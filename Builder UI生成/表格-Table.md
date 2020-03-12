@@ -212,5 +212,5 @@ btnPostRowid($name = '', $postUrl, $label = '', $class = 'btn-secondary', $icon 
 - 'hidden' => '__h_del__'，当这一条记录的`__h_del__`值为真时，这个action会加上`hidden`这个class
 - 同理，可以加上`disabled`
 ```
-`'enable' => ['disabled' => '__dis_en__'],`
+'enable' => ['disabled' => '__dis_en__'],
 ```
