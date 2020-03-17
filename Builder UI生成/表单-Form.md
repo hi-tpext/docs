@@ -45,6 +45,7 @@ matches($name, $label = '', $cloSize = 12, $colClass = '', $colAttr = '')
 //特殊组件
 tab
 step
+fields
 ```
 ###### 参数说明
 
