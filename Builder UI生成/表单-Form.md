@@ -120,3 +120,68 @@ fields
         $form->date('birthday', '生日');
         $form->textarea('description', '个人备注');
 ```
+
+# From 中 Step的使用
+
+```php
+        $form->step('基本信息');
+
+        $form->text('nickname', '姓名')->required();
+        $form->text('police_no', '警号')->required();
+        $form->text('idcard_no', '身份证号')->required();
+        $form->text('mobile', '手机号')->required();
+        $form->radio('sex', '性别')->options([0 => '保密', 1 => '男', 2 => '女']);
+
+        $form->step('个人信息');
+
+        $form->select('politic', '政治面貌')->options(['' => '请选择'] + UserInfo::$politics);
+        $form->textarea('hoby', '特长爱好');
+        $form->text('school', '学校');
+        $form->text('major', '专业');
+        $form->select('education', '学历')->options(['' => '请选择'] + UserInfo::$educations);
+        $form->date('birthday', '生日');
+        $form->textarea('description', '个人备注');
+```
+
+# From 中 Fields的使用
+
+> fields方便组合排版多个输入字段，一般用于多个字段放在同行的情况
+
+```php
+        $form->fields('教育信息')->size(2, 10);
+        $form->text('school', '学校');
+        $form->text('major', '专业');
+        //教育信息这个label占col-2,学校 + 专业占剩余的col-10
+
+        $form->fieldsEnd();//调用 fieldsEnd结束，否则后面的会继续加入
+
+        $form->fields('教育信息')->size(2, 10)->with(
+            $form->text('school', '学校'),
+            $form->text('major', '专业')
+        );
+        //使用 with 就不需要调用 fieldsEnd
+
+        $form->fields('省/市/区2')->size(2, 10)->with(
+            $form->select('province1', '', 3)
+                ->optionsData($selectP, 'ext_name')
+                ->showLabel(false)
+                ->dataUrl(url('api/areacity/province'), 'ext_name')
+                ->size(0, 12)
+                ->withNext(
+                    $form->select('city1', '', 3)
+                        ->optionsData($selectC, 'ext_name')
+                        ->showLabel(false)
+                        ->dataUrl(url('api/areacity/city'), 'ext_name')
+                        ->size(0, 12)
+                        ->withNext(
+                            $form->select('area1', '', 3)
+                                ->optionsData($selectA, 'ext_name')
+                                ->showLabel(false)
+                                ->dataUrl(url('api/areacity/area'), 'ext_name')
+                                ->size(0, 12)
+                        )
+                )
+        ); //每个下拉隐藏label
+
+        //使用 with 就不需要调用 fieldsEnd
+```
