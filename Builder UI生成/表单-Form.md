@@ -98,3 +98,25 @@ fields
 >options()
 ##### select
 >dataUrl() ajax加载
+
+# From 中 Tab的使用
+
+```php
+        $form->tab('基本信息');
+
+        $form->text('nickname', '姓名')->required();
+        $form->text('police_no', '警号')->required();
+        $form->text('idcard_no', '身份证号')->required();
+        $form->text('mobile', '手机号')->required();
+        $form->radio('sex', '性别')->options([0 => '保密', 1 => '男', 2 => '女']);
+
+        $form->tab('个人信息');
+
+        $form->select('politic', '政治面貌')->options(['' => '请选择'] + UserInfo::$politics);
+        $form->textarea('hoby', '特长爱好');
+        $form->text('school', '学校');
+        $form->text('major', '专业');
+        $form->select('education', '学历')->options(['' => '请选择'] + UserInfo::$educations);
+        $form->date('birthday', '生日');
+        $form->textarea('description', '个人备注');
+```
