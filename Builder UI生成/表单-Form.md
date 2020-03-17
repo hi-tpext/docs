@@ -99,7 +99,7 @@ fields
 ##### select
 >dataUrl() ajax加载
 
-# From 中 Tab的使用
+##### From 中 Tab的使用
 
 ```php
         $form->tab('基本信息');
@@ -121,7 +121,7 @@ fields
         $form->textarea('description', '个人备注');
 ```
 
-# From 中 Step的使用
+##### From 中 Step的使用
 
 ```php
         $form->step('基本信息');
@@ -143,45 +143,52 @@ fields
         $form->textarea('description', '个人备注');
 ```
 
-# From 中 Fields的使用
+##### From 中 Fields的使用
 
-> fields方便组合排版多个输入字段，一般用于多个字段放在同行的情况
+> fields方便组合排版多个输入字段，一般用于多个字段放在同一行的情况
 
 ```php
         $form->fields('教育信息')->size(2, 10);
-        $form->text('school', '学校');
-        $form->text('major', '专业');
-        //教育信息这个label占col-2,学校 + 专业占剩余的col-10
-
+        $form->text('school', '学校', 6);
+        $form->text('major', '专业', 6);
+        //[教育信息]这个label占[col-2],[学校] + [专业]平分剩余的[col-10]。
         $form->fieldsEnd();//调用 fieldsEnd结束，否则后面的会继续加入
 
+        //上面的相当于：
         $form->fields('教育信息')->size(2, 10)->with(
-            $form->text('school', '学校'),
-            $form->text('major', '专业')
+            $form->text('school', '学校', 6),
+            $form->text('major', '专业', 6)
         );
-        //使用 with 就不需要调用 fieldsEnd
+        //使用 with接收不定数量的`Field` 就不需要调用 fieldsEnd
+```
+##### Select 级联使用: `$select->withNext($nextSelect, $autoLoad);`
 
-        $form->fields('省/市/区2')->size(2, 10)->with(
-            $form->select('province1', '', 3)
+>$nextSelect : 下一级Select
+
+>$autoLoad : 当这个Select选值变化时，是否自动ajax加载下一级
+
+以下示例使用扩展：(省市区镇，三级或四级联动)<https://gitee.com/ichynul/tpextareacity>
+```php
+         $form->fields('省/市/区2')->size(2, 10)->with(
+            $form->select('province1', '省份', 3)
                 ->optionsData($selectP, 'ext_name')
                 ->showLabel(false)
                 ->dataUrl(url('api/areacity/province'), 'ext_name')
                 ->size(0, 12)
                 ->withNext(
-                    $form->select('city1', '', 3)
+                    $form->select('city1', '城市', 3)
                         ->optionsData($selectC, 'ext_name')
                         ->showLabel(false)
                         ->dataUrl(url('api/areacity/city'), 'ext_name')
                         ->size(0, 12)
                         ->withNext(
-                            $form->select('area1', '', 3)
+                            $form->select('area1', '区域', 3)
                                 ->optionsData($selectA, 'ext_name')
                                 ->showLabel(false)
                                 ->dataUrl(url('api/areacity/area'), 'ext_name')
                                 ->size(0, 12)
                         )
                 )
-        ); //每个下拉隐藏label
-
-        //使用 with 就不需要调用 fieldsEnd
+        );
 ```
+
