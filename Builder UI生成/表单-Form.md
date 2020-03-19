@@ -192,3 +192,30 @@ fields
         );
 ```
 
+##### match 和 matches
+分别相当于只读的`radio`和只读的`checkbox`,纯文字的。
+
+```php
+$table->match('type', '类型')->options(
+[
+1 => '<label class="label label-success">增加</label>', 
+2 => '<label class="label label-danger">支出</label>']
+)->value(1);
+
+//输出 ：增加
+```
+
+```php
+$form->match('colors', '颜色')->options(
+[
+1 => '红', 
+2 => '橙',
+3 => '黄', 
+4 => '绿',
+5 => '青', 
+6 => '蓝',
+]
+)->value('1,3,5');
+
+//输出 ：红、黄、青
+```
