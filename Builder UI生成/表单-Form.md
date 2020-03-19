@@ -206,7 +206,7 @@ $table->match('type', '类型')->options(
 ```
 
 ```php
-$form->match('colors', '颜色')->options(
+$form->matches('colors', '颜色')->options(
 [
 1 => '红', 
 2 => '橙',
