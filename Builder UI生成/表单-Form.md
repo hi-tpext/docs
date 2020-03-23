@@ -98,11 +98,11 @@ fields
 >`options($data)`
 如 `$field->options(['1' => '男', '2' => '女'])`。
 
-* optionsData($collect, $textField, $idField = 'id')
+>`optionsData($collect, $textField, $idField = 'id')`
 如 `$field->optionsData(Department::where(['status' => 1])->select(), 'dep_name')`。
 
 ##### 下拉[select]
-* dataUrl($url, $textField, $KeyField= 'id') ajax加载
+>`dataUrl($url, $textField, $KeyField= 'id')` ajax加载
 如 ``$field->dataUrl(url('user/data'), 'nickname')`
 
 ```php
