@@ -103,7 +103,7 @@ fields
 
 ##### 下拉[select]
 >`dataUrl($url, $textField, $KeyField= 'id')` ajax加载
-如 ``$field->dataUrl(url('user/data'), 'nickname')`
+如 `$field->dataUrl(url('user/data'), 'nickname')`
 
 ```php
 // **** 数据接口返回
