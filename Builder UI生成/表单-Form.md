@@ -102,7 +102,7 @@ fields
 如 `$field->optionsData(Department::where(['status' => 1])->select(), 'dep_name')`。
 
 ##### 下拉[select]
->dataUrl($url, $textField, $KeyField= 'id') ajax加载
+* dataUrl($url, $textField, $KeyField= 'id') ajax加载
 如 ``$field->dataUrl(url('user/data'), 'nickname')`
 
 ```php
