@@ -93,11 +93,44 @@ fields
 
 >fill()       填充
 
-##### 多选单选
+##### 多选[checkbox]、单选[radio]、下拉[select]
 
->options()
-##### select
->dataUrl() ajax加载
+>options($data)
+如 `$field->options(['1' => '男', '2' => '女'])`。
+
+>optionsData($collect, $textField, $idField = 'id')
+如 `$field->optionsData(Department::where(['status' => 1])->select(), 'dep_name')`。
+
+##### 下拉[select]
+>dataUrl($url, $textField, $KeyField= 'id') ajax加载
+如 ``$field->dataUrl(url('user/data'), 'nickname')`
+
+```php
+// **** 数据接口返回
+class User extends Controller
+{
+    protected $dataModel;
+
+    protected function initialize()
+    {
+        $this->dataModel = new User;
+    }
+
+    public function data()
+    {
+        $q = input('q');
+        $where =[]; 
+
+        if($q)
+        {
+            $where []= ['nickname|phone|email', 'like', '%' . $q .'%'];
+        }
+
+        return json(['data' => $this->dataModel->where($where)->select()]);
+    }
+}
+```
+
 
 ##### From 中 Tab的使用
 
