@@ -20,6 +20,8 @@
     $table->show('create_time', '添加时间')->getWapper()->addStyle('width:180px');
     $table->show('update_time', '修改时间')->getWapper()->addStyle('width:180px');
 
+    $searchData = request()->post();
+
     $where = [];
     if (!empty($searchData['username'])) {
         $where[] = ['username', 'like', '%' . $searchData['username'] . '%'];
