@@ -46,6 +46,7 @@ matches($name, $label = '', $cloSize = 12, $colClass = '', $colAttr = '')
 tab
 step
 fields
+items
 ```
 ###### 参数说明
 
@@ -193,6 +194,48 @@ class User extends Controller
             $form->text('major', '专业', 6)
         );
         //使用 with接收不定数量的`Field` 就不需要调用 fieldsEnd
+        //
+```
+> items 条目列表，如产品规格，和产品分属不同的数据表
+
+```php\
+        $skus = SkuMedel::where(['goods_id'=> $goods_id])->select();
+
+        $form->items('skus','产品规格')->size(2, 10)->fill($skus);//单独填充
+        $form->text('name', '规格名称')->required();
+        $form->number('stock', '库存')->default(1);
+        $form->itemsEnd();//调用 itemsEnd结束，否则后面的会继续加入
+
+        //上面的相当于：
+        $data['skus'] = SkuMedel::where(['goods_id'=> $goods_id])->select();
+        // skus 放入`$form`的数据`$data`里面一起填充。
+        $form->items('skus','产品规格')->size(2, 10)->with(
+            $form->text('name', '规格名称')->required(),
+            $form->number('stock', '库存')->default(1)
+        );
+        //使用 with接收不定数量的`Field` 就不需要调用 itemsEnd
+        $form->fill($data);
+
+        //保存
+        $skus = input('post.skus/a');
+        foreach($skus as $id=> $sku)
+        {
+           if(is_numeric($id))//为数字，是数据库已经存在的
+           {
+               if($sku['__del__'] ==1)//标记为删除
+               {
+                  SkuMedel::destory($id);
+               }
+               else//更新
+               {
+                  SkuMedel::where(['id'=> $id])->update($sku);
+               }
+           }
+           else//新加的
+           {
+               SkuMedel::create($sku);
+           }
+        }
 ```
 ##### Select 级联使用: `$select->withNext($nextSelect, $autoLoad);`
 
