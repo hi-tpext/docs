@@ -91,3 +91,36 @@ class Admin extends Controller
     }
 }
 ```
+`HasBuilder` 包含了全部，如果用不到，可以按需加载。
+一方面避免分配权限的时候不需要的动作也显示，
+另一方面也保证api安全。
+```
+use tpext\builder\traits\actions\HasBase;
+use tpext\builder\traits\actions\HasIndex;
+use tpext\builder\traits\actions\HasDelete;
+
+class Operationlog extends Controller
+{
+    //只需要 index、delete 两个动作
+    use HasBase;
+    use HasIndex;
+    use HasDelete;
+    
+    //实现下面三个动作逻辑：
+
+    protected function filterWhere()
+    {
+       //...
+    }
+    
+    protected function builSearch()
+    {
+        //...
+    }
+    
+    protected function buildTable(&$data = [])
+    {
+        //...
+    }
+}
+```
