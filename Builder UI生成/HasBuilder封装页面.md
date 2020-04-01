@@ -44,6 +44,7 @@ class Admin extends Controller
         $table->show('id', 'ID');
         $table->show('username', '登录帐号');
         //构建表格
+        //略
 
         $table->getToolbar()
            ->btnAdd()
@@ -65,6 +66,7 @@ class Admin extends Controller
         $form = $this->form;
         $form->text('username', '登录帐号')->required()->beforSymbol('<i class="mdi mdi-account-key"></i>');
         //构建表单
+        //略
     }
 
    /**
