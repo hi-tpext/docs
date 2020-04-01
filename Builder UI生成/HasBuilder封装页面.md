@@ -48,11 +48,11 @@ class Admin extends Controller
 
         $table->getToolbar()
            ->btnAdd()
-           ->btnEnable();
+           ->btnDelete();
 
          $table->getActionbar()
            ->btnEdit()
-           ->btnEnable();
+           ->btnDelete();
      }
    
     /**
@@ -93,8 +93,14 @@ class Admin extends Controller
 ```
 `HasBuilder` 包含了全部，如果用不到，可以按需加载。
 一方面避免分配权限的时候不需要的动作也显示，
-另一方面也保证api安全。
+另一方面也保证api安全，动作是存在的。
+即使你没有使用显式调用`删除`这个动作
+```php
+      $table->getToolbar()->btnDelete();
+      $table->getActionbar()->btnDelete();
 ```
+不代表用户就调用不了这个动作。
+```php
 use tpext\builder\traits\actions\HasBase;
 use tpext\builder\traits\actions\HasIndex;
 use tpext\builder\traits\actions\HasDelete;
