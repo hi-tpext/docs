@@ -200,16 +200,17 @@ class User extends Controller
 
 ```php\
         $skus = SkuMedel::where(['goods_id'=> $goods_id])->select();
-        $list = [];
-        foreach ($skus as $key => $val) {
-            $list[$key] = $val;
-        }
-        $form->items('skus','产品规格')->size(2, 10)->fill($list);//单独填充
+        
+        $form->items('skus','产品规格')->size(2, 10)->dataWithId($list);//单独填充
         $form->text('name', '规格名称')->required();
         $form->number('stock', '库存')->default(1);
         $form->itemsEnd();//调用 itemsEnd结束，否则后面的会继续加入
 
         //上面的相当于：
+        $list = [];
+        foreach ($skus as $key => $val) {
+            $list[$key] = $val;
+        }
         $data['skus'] = $list;
         // skus 放入`$form`的数据`$data`里面一起填充。
         $form->items('skus','产品规格')->size(2, 10)->with(
