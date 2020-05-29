@@ -41,6 +41,7 @@
 
     $sortOrder = input('__sort__', 'id desc');
     $page = input('__page __/d', '1');
+    $page = $page > 1 ? $page :1;
 
     $pagezise = 12;
 
