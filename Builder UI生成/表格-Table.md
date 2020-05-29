@@ -40,6 +40,8 @@
     }
 
     $sortOrder = input('__sort__', 'id desc');
+    $page = input('__page __/d', '1');
+
     $pagezise = 12;
 
     $data = $this->dataModel->where($where)->order($sortOrder)->limit(($page - 1) * $pagezise, $pagezise)->select();
