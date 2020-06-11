@@ -12,13 +12,13 @@
 
     $table->show('id', 'ID');
     $table->show('username', '登录帐号');
-    $table->text('name', '姓名')->autoPost()->getWapper()->addStyle('max-width:80px');
+    $table->text('name', '姓名')->autoPost()->getWrapper()->addStyle('max-width:80px');
     $table->show('role_name', '角色');
     $table->show('email', '电子邮箱')->default('无');
     $table->show('phone', '手机号')->default('无');
     $table->show('errors', '登录失败');
-    $table->show('create_time', '添加时间')->getWapper()->addStyle('width:180px');
-    $table->show('update_time', '修改时间')->getWapper()->addStyle('width:180px');
+    $table->show('create_time', '添加时间')->getWrapper()->addStyle('width:180px');
+    $table->show('update_time', '修改时间')->getWrapper()->addStyle('width:180px');
 
     $searchData = request()->post();
 
