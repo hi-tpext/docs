@@ -17,8 +17,11 @@
     $table->show('email', '电子邮箱')->default('无');
     $table->show('phone', '手机号')->default('无');
     $table->show('errors', '登录失败');
-    $table->show('create_time', '添加时间')->getWrapper()->addStyle('width:180px');
-    $table->show('update_time', '修改时间')->getWrapper()->addStyle('width:180px');
+    //多字段组合使用`fields`
+    $table->fields('times', '添加/更新时间')->with(
+       $table->show('create_time', '添加时间'),
+       $table->show('update_time', '修改时间')
+    )->getWrapper()->addStyle('width:180px');
 
     $searchData = request()->post();
 
