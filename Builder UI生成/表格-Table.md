@@ -99,7 +99,20 @@ btnAdd / btnDelete / btnRefresh
             ->btnExports(['xlxs'=>'xlsx','xls'=>'xls'])
             ->btnRefresh();
 ```
-
+```使用`dropdown actions`
+    $table->getToolbar()
+            ->btnAdd()
+            ->btnActions(
+                [
+                    'enable' => ['url' => url('enable', ['state' => 1]), 'label' => '启用'],
+                    'disable' => ['url' => url('enable', ['state' => 0]), 'label' => '禁用'],
+                    'delete' => '删除',
+                ]
+            )
+            ->btnExport()
+            ->btnExports(['xlxs'=>'xlsx','xls'=>'xls'])
+            ->btnRefresh();
+```
 >禁用工具栏
 
 ```php
