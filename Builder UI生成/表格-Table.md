@@ -99,7 +99,8 @@ btnAdd / btnDelete / btnRefresh
             ->btnExports(['xlxs'=>'xlsx','xls'=>'xls'])
             ->btnRefresh();
 ```
-```使用`dropdown actions`
+使用`dropdown actions`
+```php
     $table->getToolbar()
             ->btnAdd()
             ->btnActions(
