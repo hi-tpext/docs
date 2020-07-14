@@ -100,7 +100,7 @@ btnAdd / btnDelete / btnRefresh
             ->btnRefresh();
 ```
 
->禁用
+>禁用工具栏
 
 ```php
 $table->useToolbar(false);
@@ -160,6 +160,24 @@ btnEdit / btnDelet
             ->btnEnable()
             ->btnDisable()
             ->btnDelete()
+            ->mapClass([
+                'delete' => ['hidden' => '__h_del__'],
+                'enable' => ['hidden' => '__h_en__'],
+                'disable' => ['hidden' => '__h_dis__'],
+            ]);
+```
+使用`dropdown actions`
+```php
+     $table->getActionbar()
+            ->btnEdit()
+            ->btnActions(
+                [
+                    'enable' => ['url' => url('enable', ['state' => 1]), 'label' => '启用'],
+                    'disable' => ['url' => url('enable', ['state' => 0]), 'label' => '禁用'],
+                    'delete' => '删除',
+                    'view' => ['url' => url('view', ['id' => '__dat.pk__']), 'label' => '查看','confirm' => '2'],
+                ]
+            )
             ->mapClass([
                 'delete' => ['hidden' => '__h_del__'],
                 'enable' => ['hidden' => '__h_en__'],
