@@ -18,8 +18,9 @@ public function afterOptions($options){}
 //与现有选项合并，会重排数组键
 public function mergeOptions($options){}
 ```
+
 | id |name| key |
-|----|----| key　|
+| ---- | ---- | ---- |
 | 1  |  男 | m　 |
 | 2  |  女 | f　 |
 | 3  |  女 | n　 |
