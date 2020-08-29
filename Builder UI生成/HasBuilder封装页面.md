@@ -1,5 +1,5 @@
 - `HasBuilder`封装了增、删、查、改等所有动作
-- 也可按需分别引入`tpext\builder\traits\`命名空间下的相应动作。
+- 也可按需分别引入`tpext\builder\traits\actions\`命名空间下的相应动作。
 
 ```php
 use tpext\builder\traits\HasBuilder;
