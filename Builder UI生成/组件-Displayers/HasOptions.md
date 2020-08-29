@@ -3,7 +3,10 @@
 //选项,传入数组　如 [1=>'男',　2=>'女'];
 public function options($options)
 
-//传入查询结果集
+//选项,传入数组　如 ['男', '女']
+public function texts($texts)
+
+//传入查询结果集　textField　为表中可作为显示文本的字段
 public function optionsData($optionsData, $textField = '', $idField = 'id')
 
 //在现有选项【前面】加入选项
