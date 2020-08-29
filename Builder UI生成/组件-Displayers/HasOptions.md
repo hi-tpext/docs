@@ -31,7 +31,7 @@ optionsData使用说明：　　
 | 3  |  未知 | n　 |
 
 ```php
-//指定value/key字段
+//指定text/key字段
 $genderMocel = new GenderType;
 $form->select('gender','性别')->optionsData($genderMocel::all(), 'name', 'key');
 ```
@@ -42,7 +42,7 @@ $form->select('gender','性别')->optionsData($genderMocel::all(), 'name', 'key'
 <option vlaue="n">未知</option>
 </select>
 ```
-//指定value，主键id作为key:
+//指定text，主键id作为key:
 
 ```php
 $genderMocel = new GenderType;
