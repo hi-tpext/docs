@@ -1,1 +1,33 @@
 其实就是`Form`，把某些不适合使用的组件隐藏了
+```php
+/**
+ * Methods.
+ *
+ * Text           text($name, $label = '', $colSize = 2, $filter = '')
+ * Checkbox       checkbox($name, $label = '', $colSize = 2, $filter = '')
+ * Radio          radio($name, $label = '', $colSize = 2, $filter = '')
+ * Button         button($type, $label = '', $colSize = 2, $filter = '')
+ * Select         select($name, $label = '', $colSize = 2, $filter = '')
+ * MultipleSelect multipleSelect($name, $label = '', $colSize = 2, $filter = '')
+ * Textarea       textarea($name, $label = '', $colSize = 2, $filter = '')
+ * Hidden         hidden($name)
+ * Color          color($name, $label = '', $colSize = 2, $filter = '')
+ * RangeSlider    rangeSlider($name, $label = '', $colSize = 2, $filter = '')
+ * Date           date($name, $label = '', $colSize = 2, $filter = '')
+ * Datetime       datetime($name, $label = '', $colSize = 2, $filter = '')
+ * Time           time($name, $label = '', $colSize = 2, $filter = '')
+ * Year           year($name, $label = '', $colSize = 2, $filter = '')
+ * Month          month($name, $label = '', $colSize = 2, $filter = '')
+ * DateRange      dateRange($name, $label = '', $colSize = 2, $filter = '')
+ * DateTimeRange  datetimeRange($name, $label = '', $colSize = 2, $filter = '')
+ * TimeRange      timeRange($name, $label = '', $colSize = 2, $filter = '')
+ * Number         number($name, $label = '', $colSize = 2, $filter = '')
+ * SwitchBtn      switchBtn($name, $label = '', $colSize = 2, $filter = '')
+ * Rate           rate($name, $label = '', $colSize = 2, $filter = '')
+ * Divider        divider($text, $label = '', $colSize = 2, $filter = '')
+ * Decimal        decimal($name, $label = '', $colSize = 2, $filter = '')
+ * Tags           tags($name, $label = '', $colSize = 2, $filter = '')
+ * Icon           icon($name, $label = '', $colSize = 2, $filter = '')
+ * Fields         fields($name, $label = '', $colSize = 12, $filter = '')
+ */
+```
