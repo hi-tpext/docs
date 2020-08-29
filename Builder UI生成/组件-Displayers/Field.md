@@ -8,6 +8,7 @@
 
 `table`中使用`fields`里面使用`show`和`field`有略微差别。`show`有div包裹着，是块级元素，`field`是行内元素。
 
+
 ```php
         $table->fields('consignee', '收货人/电话')->with(
             $table->show('consignee', '收货人'),
