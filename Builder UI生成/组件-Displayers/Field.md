@@ -2,7 +2,7 @@
 
 直接输出value(支持html),一般不直接使用。
 
-`form`中使用：无label, 不支持col大小控制。
+`form`中使用：无label, 不支持col-md-大小控制。
 
 `table`中使用，和`show`类似。
 
