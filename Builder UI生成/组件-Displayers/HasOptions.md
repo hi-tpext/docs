@@ -30,12 +30,25 @@ optionsData使用说明：　　
 
 ```php
 $genderMocel = new GenderType;
-$form->radio('gender','性别')->optionsData($genderMocel::all(), 'name', 'key');
+$form->select('gender','性别')->optionsData($genderMocel::all(), 'name', 'key');
 ```
 ```html
 <select>
 <option vlaue="m">男</option>
 <option vlaue="f">女</option>
 <option vlaue="n">未知</option>
+</select>
+```
+若直接使用主键id作为key:
+
+```php
+$genderMocel = new GenderType;
+$form->select('gender','性别')->optionsData($genderMocel::all(), 'name');
+```
+```html
+<select>
+<option vlaue="1">男</option>
+<option vlaue="2">女</option>
+<option vlaue="3">未知</option>
 </select>
 ```
