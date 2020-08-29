@@ -154,45 +154,45 @@ class User extends Controller
 ##### From 中 Tab的使用
 
 ```php
-        $form->tab('基本信息');
+   $form->tab('基本信息');
 
-        $form->text('nickname', '姓名')->required();
-        $form->text('police_no', '警号')->required();
-        $form->text('idcard_no', '身份证号')->required();
-        $form->text('mobile', '手机号')->required();
-        $form->radio('sex', '性别')->options([0 => '保密', 1 => '男', 2 => '女']);
+   $form->text('nickname', '姓名')->required();
+   $form->text('police_no', '警号')->required();
+   $form->text('idcard_no', '身份证号')->required();
+   $form->text('mobile', '手机号')->required();
+   $form->radio('sex', '性别')->options([0 => '保密', 1 => '男', 2 => '女']);
 
-        $form->tab('个人信息');
+   $form->tab('个人信息');
 
-        $form->select('politic', '政治面貌')->options(['' => '请选择'] + UserInfo::$politics);
-        $form->textarea('hoby', '特长爱好');
-        $form->text('school', '学校');
-        $form->text('major', '专业');
-        $form->select('education', '学历')->options(['' => '请选择'] + UserInfo::$educations);
-        $form->date('birthday', '生日');
-        $form->textarea('description', '个人备注');
+   $form->select('politic', '政治面貌')->options(['' => '请选择'] + UserInfo::$politics);
+   $form->textarea('hoby', '特长爱好');
+   $form->text('school', '学校');
+   $form->text('major', '专业');
+   $form->select('education', '学历')->options(['' => '请选择'] + UserInfo::$educations);
+   $form->date('birthday', '生日');
+   $form->textarea('description', '个人备注');
 ```
 
 ##### From 中 Step的使用
 
 ```php
-        $form->step('基本信息');
+   $form->step('基本信息');
 
-        $form->text('nickname', '姓名')->required();
-        $form->text('police_no', '警号')->required();
-        $form->text('idcard_no', '身份证号')->required();
-        $form->text('mobile', '手机号')->required();
-        $form->radio('sex', '性别')->options([0 => '保密', 1 => '男', 2 => '女']);
+   $form->text('nickname', '姓名')->required();
+   $form->text('police_no', '警号')->required();
+   $form->text('idcard_no', '身份证号')->required();
+   $form->text('mobile', '手机号')->required();
+   $form->radio('sex', '性别')->options([0 => '保密', 1 => '男', 2 => '女']);
 
-        $form->step('个人信息');
+   $form->step('个人信息');
 
-        $form->select('politic', '政治面貌')->options(['' => '请选择'] + UserInfo::$politics);
-        $form->textarea('hoby', '特长爱好');
-        $form->text('school', '学校');
-        $form->text('major', '专业');
-        $form->select('education', '学历')->options(['' => '请选择'] + UserInfo::$educations);
-        $form->date('birthday', '生日');
-        $form->textarea('description', '个人备注');
+   $form->select('politic', '政治面貌')->options(['' => '请选择'] + UserInfo::$politics);
+   $form->textarea('hoby', '特长爱好');
+   $form->text('school', '学校');
+   $form->text('major', '专业');
+   $form->select('education', '学历')->options(['' => '请选择'] + UserInfo::$educations);
+   $form->date('birthday', '生日');
+   $form->textarea('description', '个人备注');
 ```
 
 ##### From 中 Fields的使用
@@ -200,65 +200,65 @@ class User extends Controller
 > fields方便组合排版多个输入字段，一般用于多个字段放在同一行的情况
 
 ```php
-        $form->fields('教育信息')->size(2, 10);
-        $form->text('school', '学校', 6);
-        $form->text('major', '专业', 6);
-        //[教育信息]这个label占[col-2],[学校] + [专业]平分剩余的[col-10]。
-        $form->fieldsEnd();//调用 fieldsEnd结束，否则后面的会继续加入
+   $form->fields('教育信息')->size(2, 10);
+   $form->text('school', '学校', 6);
+   $form->text('major', '专业', 6);
+   //[教育信息]这个label占[col-2],[学校] + [专业]平分剩余的[col-10]。
+   $form->fieldsEnd();//调用 fieldsEnd结束，否则后面的会继续加入
 
-        //上面的相当于：
-        $form->fields('教育信息')->size(2, 10)->with(
-            $form->text('school', '学校', 6),
-            $form->text('major', '专业', 6)
-        );
+   //上面的相当于：
+   $form->fields('教育信息')->size(2, 10)->with(
+       $form->text('school', '学校', 6),
+       $form->text('major', '专业', 6)
+   );
         //使用 with接收不定数量的`Field` 就不需要调用 fieldsEnd
         //
 ```
 > items 条目列表，如产品规格，和产品分属不同的数据表
 
-```php\
-        $skus = SkuMedel::where(['goods_id'=> $goods_id])->select();
+```php
+   $skus = SkuMedel::where(['goods_id'=> $goods_id])->select();
         
-        $form->items('skus','产品规格')->size(2, 10)->dataWithId($list);//单独填充
-        $form->text('name', '规格名称')->required();
-        $form->number('stock', '库存')->default(1);
-        $form->itemsEnd();//调用 itemsEnd结束，否则后面的会继续加入
+   $form->items('skus','产品规格')->size(2, 10)->dataWithId($list);//单独填充
+   $form->text('name', '规格名称')->required();
+   $form->number('stock', '库存')->default(1);
+   $form->itemsEnd();//调用 itemsEnd结束，否则后面的会继续加入
 
-        //上面的相当于：
-        $list = [];
-        foreach ($skus as $key => $val) {
-            $list[$key] = $val;
-        }
-        $data['skus'] = $list;
-        // skus 放入`$form`的数据`$data`里面一起填充。
-        $form->items('skus','产品规格')->size(2, 10)->with(
-            $form->text('name', '规格名称')->required(),
-            $form->number('stock', '库存')->default(1)
-        );
-        //使用 with接收不定数量的`Field` 就不需要调用 itemsEnd
-        $form->fill($data);
+   //上面的相当于：
+   $list = [];
+   foreach ($skus as $key => $val) {
+       $list[$key] = $val;
+   }
+   $data['skus'] = $list;
+   // skus 放入`$form`的数据`$data`里面一起填充。
+   $form->items('skus','产品规格')->size(2, 10)->with(
+       $form->text('name', '规格名称')->required(),
+       $form->number('stock', '库存')->default(1)
+   );
+   //使用 with接收不定数量的`Field` 就不需要调用 itemsEnd
+   $form->fill($data);
 
-        //保存
-        $skus = input('post.skus/a');
-        foreach($skus as $id=> $sku)
-        {
-           if(is_numeric($id))//为数字，是数据库已经存在的
-           {
-               if($sku['__del__'] ==1)//标记为删除
-               {
-                  SkuMedel::destory($id);
-               }
-               else//更新
-               {
-                  unset($data['__del__']);
-                  SkuMedel::where(['id'=> $id])->update($sku);
-               }
+   //保存
+   $skus = input('post.skus/a');
+   foreach($skus as $id=> $sku)
+   {
+       if(is_numeric($id))//为数字，是数据库已经存在的
+       {
+          if($sku['__del__'] ==1)//标记为删除
+          {
+              SkuMedel::destory($id);
+          }
+          else//更新
+          {
+              unset($data['__del__']);
+              SkuMedel::where(['id'=> $id])->update($sku);
            }
-           else//新加的
-           {
-               SkuMedel::create($sku);
-           }
-        }
+       }
+       else//新加的
+       {
+           SkuMedel::create($sku);
+       }
+   }
 ```
 ##### Select 级联使用: `$select->withNext($nextSelect, $autoLoad);`
 
@@ -268,27 +268,27 @@ class User extends Controller
 
 以下示例使用扩展：(省市区镇，三级或四级联动)<https://gitee.com/ichynul/tpextareacity>
 ```php
-         $form->fields('省/市/区2')->size(2, 10)->with(
-            $form->select('province1', '省份', 3)
-                ->optionsData($selectP, 'ext_name')
-                ->showLabel(false)
-                ->dataUrl(url('api/areacity/province'), 'ext_name')
-                ->size(0, 12)
-                ->withNext(
-                    $form->select('city1', '城市', 3)
-                        ->optionsData($selectC, 'ext_name')
-                        ->showLabel(false)
-                        ->dataUrl(url('api/areacity/city'), 'ext_name')
-                        ->size(0, 12)
-                        ->withNext(
-                            $form->select('area1', '区域', 3)
-                                ->optionsData($selectA, 'ext_name')
-                                ->showLabel(false)
-                                ->dataUrl(url('api/areacity/area'), 'ext_name')
-                                ->size(0, 12)
-                        )
-                )
-        );
+   $form->fields('省/市/区2')->size(2, 10)->with(
+       $form->select('province1', '省份', 3)
+           ->optionsData($selectP, 'ext_name')
+           ->showLabel(false)
+           ->dataUrl(url('api/areacity/province'), 'ext_name')
+           ->size(0, 12)
+           ->withNext(
+                $form->select('city1', '城市', 3)
+                    ->optionsData($selectC, 'ext_name')
+                    ->showLabel(false)
+                    ->dataUrl(url('api/areacity/city'), 'ext_name')
+                    ->size(0, 12)
+                    ->withNext(
+                        $form->select('area1', '区域', 3)
+                           ->optionsData($selectA, 'ext_name')
+                           ->showLabel(false)
+                           ->dataUrl(url('api/areacity/area'), 'ext_name')
+                           ->size(0, 12)
+                    )
+            )
+    );
 ```
 
 ##### match 和 matches
