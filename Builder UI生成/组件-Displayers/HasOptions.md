@@ -19,8 +19,14 @@ public function afterOptions($options){}
 public function mergeOptions($options){}
 ```
 
+数据库表: tp_gender_type ,模型　\app\cpmmpn\model\GenderType;
 | id |name| key |
 | ---- | ---- | ---- |
 | 1  |  男 | m　 |
 | 2  |  女 | f　 |
 | 3  |  女 | n　 |
+
+```php
+$genderMocel = new GenderType;
+$form->radio('gender','性别')->optionsData($genderMocel::all(), 'name', 'key');
+```
