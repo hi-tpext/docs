@@ -4,15 +4,20 @@
 ```php
 
 //设置颜色代码格式，可选格式为下面几个方法的名称。
-public function format($val)
+public function format($val){}
 
-public function rgb()
+//设置颜色代码格式:rgb
+public function rgb(){}
 
-public function rgba()
+//设置颜色代码格式:rgba
+public function rgba(){}
 
-public function hsl()
+//设置颜色代码格式:hsl
+public function hsl(){}
 
-public function hsla()
+//设置颜色代码格式:hsla
+public function hsla(){}
 
-public function hex()
+//设置颜色代码格式:hex
+public function hex(){}
 ```
