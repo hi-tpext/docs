@@ -1,14 +1,44 @@
+```php
+/**
+ * Methods.
+ *
+ Field          field($name, $label = '', $colSize = 12)
+ Text           text($name, $label = '', $colSize = 12)
+ heckbox       checkbox($name, $label = '', $colSize = 12)
+ Radio          radio($name, $label = '', $colSize = 12)
+ Select         select($name, $label = '', $colSize = 12)
+ MultipleSelect multipleSelect($name, $label = '', $colSize = 12)
+ Textarea       textarea($name, $label = '', $colSize = 12)
+ Color          color($name, $label = '', $colSize = 12)
+ RangeSlider    rangeSlider($name, $label = '', $colSize = 12)
+ File           file($name, $label = '', $colSize = 12)
+ Image          image($name, $label = '', $colSize = 12)
+ Date           date($name, $label = '', $colSize = 12)
+ Datetime       datetime($name, $label = '', $colSize = 12)
+ Time           time($name, $label = '', $colSize = 12)
+ Year           year($name, $label = '', $colSize = 12)
+ Month          month($name, $label = '', $colSize = 12)
+ TimeRange      timeRange($name, $label = '', $colSize = 12)
+ Number         number($name, $label = '', $colSize = 12)
+ SwitchBtn      switchBtn($name, $label = '', $colSize = 12)
+ Decimal        decimal($name, $label = '', $colSize = 12)
+ Html           html($html, $label = '', $colSize = 12)
+ Raw            raw($name, $label = '', $colSize = 12)
+ Show           show($name, $label = '', $colSize = 12)
+ Tags           tags($name, $label = '', $colSize = 12)
+ Icon           icon($name, $label = '', $colSize = 12)
+ MultipleImage  multipleImage($name, $label = '', $colSize = 12)
+ MultipleFile   multipleFile($name, $label = '', $colSize = 12)
+ Match          match($name, $label = '', $colSize = 12)
+ Matches        matches($name, $label = '', $colSize = 12)
+ Fields         fields($name, $label = '', $colSize = 12)
+ *
+ */
+```
+- 理论上支持全部`form`组件，但一般来说，使用`show`,`field`,`text`,`Checkbox`,`Radio`,`Select`,`Textarea`等基本够用了。
+- `show`和`field`纯显示，`text`,`Checkbox`等表单元素支持在表格行内修改并失去焦点自动提交【配合autoPost】。
 ###### 基本使用
 ```php
-    $builder = Builder::getInstance('用户管理', '列表');
-    $table = $builder->table();
-
-    $form = $table->getSearch();
-    $form->text('username', '账号', 3)->maxlength(20);
-    $form->text('name', '姓名', 3)->maxlength(20);
-    $form->text('phone', '手机号', 3)->maxlength(20);
-    $form->text('email', '邮箱', 3)->maxlength(20);
-    $form->select('role_id', '角色组', 3)->options($this->getRoleList());
 
     $table->show('id', 'ID');
     $table->show('username', '登录帐号');
@@ -22,42 +52,7 @@
        $table->show('create_time', '添加时间'),
        $table->show('update_time', '修改时间')
     )->getWrapper()->addStyle('width:180px');
-
-    $searchData = request()->post();
-
-    $where = [];
-    if (!empty($searchData['username'])) {
-        $where[] = ['username', 'like', '%' . $searchData['username'] . '%'];
-    }
-    if (!empty($searchData['name'])) {
-        $where[] = ['name', 'like', '%' . $searchData['name'] . '%'];
-    }
-    if (!empty($searchData['phone'])) {
-        $where[] = ['phone', 'like', '%' . $searchData['phone'] . '%'];
-    }
-    if (!empty($searchData['email'])) {
-        $where[] = ['email', 'like', '%' . $searchData['email'] . '%'];
-    }
-    if (!empty($searchData['role_id'])) {
-        $where[] = ['role_id', 'eq', $searchData['role_id']];
-    }
-
-    $sortOrder = input('__sort__', 'id desc');
-    $page = input('__page __/d', '1');
-    $page = $page > 1 ? $page :1;
-
-    $pagezise = 12;
-
-    $data = $this->dataModel->where($where)->order($sortOrder)->limit(($page - 1) * $pagezise, $pagezise)->select();
-    $table->data($data);
-    $table->sortOrder($sortOrder);
-    $table->paginator($this->dataModel->where($where)->count(), $pagezise);
-
-    if (request()->isAjax()) {
-        return $table->partial()->render();
-    }
-
-    return $builder->render();
+   
 ```
 ###### 常用
 
