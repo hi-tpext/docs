@@ -22,7 +22,7 @@ public function mergeOptions($options){}
 ```
 optionsData使用说明：　　
 
-数据库表: tp_gender_type ,模型　\app\cpmmpn\model\GenderType;
+数据库表: tp_gender_type ,模型　\app\common\model\GenderType;
 
 | id |name| key |
 | ---- | ---- | ---- |
