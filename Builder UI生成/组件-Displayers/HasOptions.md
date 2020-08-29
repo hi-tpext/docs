@@ -3,7 +3,7 @@
 //选项,传入数组　如 [1=>'男',　2=>'女'];
 public function options($options){}
 
-//选项,传入数组　如 ['男', '女']
+//键值一样的选项,传入数组　如 ['男', '女']
 public function texts($texts){}
 
 //传入查询结果集　textField　为表中可作为显示文本的字段
