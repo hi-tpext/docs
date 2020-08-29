@@ -3,7 +3,6 @@
 主要方法：
 
 ```php
-
 //修改格式，默认为YYYY-MM-DD HH:mm:ss
 public function format($val){}
 
