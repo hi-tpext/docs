@@ -4,7 +4,6 @@
 主要方法：
 
 ```php
-
 //修改格式，默认为yyyy-mm-dd
 public function format($val){}
 
