@@ -18,15 +18,24 @@ public function afterOptions($options){}
 //与现有选项合并，会重排数组键
 public function mergeOptions($options){}
 ```
+optionsData使用说明：　　
 
 数据库表: tp_gender_type ,模型　\app\cpmmpn\model\GenderType;
+
 | id |name| key |
 | ---- | ---- | ---- |
 | 1  |  男 | m　 |
 | 2  |  女 | f　 |
-| 3  |  女 | n　 |
+| 3  |  未知 | n　 |
 
 ```php
 $genderMocel = new GenderType;
 $form->radio('gender','性别')->optionsData($genderMocel::all(), 'name', 'key');
+```
+```html
+<select>
+<option vlaue="m">男</option>
+<option vlaue="f">女</option>
+<option vlaue="n">未知</option>
+</select>
 ```
