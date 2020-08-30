@@ -58,11 +58,18 @@ $form->fieldsEnd();
 
 ```php
 $table->fields('consignee', '收货人/电话')->with(
-      $table->show('consignee', '收货人'),
-      $table->show('mobile', '电话')->default('--')
+     $table->show('consignee', '收货人'),
+     $table->show('mobile', '电话')->default('--')
+);
+
+$table->show('pay_money', '支付金额');
+
+$table->fields('pay_status', '支付状态/时间')->with(
+     $table->match('pay_status', '支付状态')->options(OrderModel::$pay_status_types),
+     $table->show('pay_time', '支付时间')->default('--')
 );
 ```
 显示：
-|  收货人/电话   |　支付金额 |
-|  :----:  |   :----:  |
-| 小明<br>13612345678  | 100.00 |
+|  收货人/电话   |　支付金额 | 支付状态/时间 |
+|  :----:  |   :----:  | :----:  |
+| 小明<br>13612345678  | 100.00 | 已支付<br>2020-08-29|
