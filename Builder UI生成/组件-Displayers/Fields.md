@@ -20,7 +20,7 @@ $form->text('spu', 'spu码')->maxlength(100);
 
 $form->fieldsEnd();//结束
 ```
-布局：左边`col-md-7` + 右边`col-md-5`　　
+- 功能1:页面布局，左边`col-md-7` + 右边`col-md-5`,把页码整体做一个基本的划分。　　
 ```php
 $form->fields('', '', 7)->size(0, 12)->showLabel(false);
 $form->text('name', '名称')->required()->maxlength(55);
