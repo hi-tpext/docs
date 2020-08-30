@@ -2,6 +2,17 @@
 
 有两种写法:
 - 1 使用with;
-$form->fields('', 'label', 7);
+```php
+$form->fields('', '基本信息', 7)->with(
+    $form->text('name', '名称')->required()->maxlength(55),
+    $form->text('spu', 'spu码')->maxlength(100),
+);
+```
 
 - 2 使用fieldsEnd;
+```php
+$form->fields('', '基本信息', 7);
+$form->text('name', '名称')->required()->maxlength(55);
+$form->text('spu', 'spu码')->maxlength(100);
+$form->fieldsEnd();
+```
