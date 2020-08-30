@@ -5,7 +5,7 @@
 ```php
 $form->fields('', '基本信息', 7)->with(
     $form->text('name', '名称')->required()->maxlength(55),
-    $form->text('spu', 'spu码')->maxlength(100),
+    $form->text('spu', 'spu码')->maxlength(100)
 );
 ```
 
