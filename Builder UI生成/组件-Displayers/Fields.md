@@ -20,3 +20,13 @@ $form->text('spu', 'spu码')->maxlength(100);
 
 $form->fieldsEnd();//结束
 ```
+布局：　　
+```php
+$form->fields('', '', 7)->size(0, 12)->showLabel(false);
+//包含组件
+$form->fieldsEnd();
+
+$form->fields('', '', 5)->size(0, 12)->showLabel(false);
+//包含组件
+$form->fieldsEnd();
+```
