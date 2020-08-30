@@ -61,7 +61,6 @@ $table->fields('consignee', '收货人/电话')->with(
       $table->show('consignee', '收货人'),
       $table->show('mobile', '电话')->default('--')
 );
-        
 ```
 显示：
 |  收货人/电话   |
