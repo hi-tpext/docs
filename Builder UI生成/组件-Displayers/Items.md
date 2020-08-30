@@ -23,6 +23,9 @@ public function canAdd($val){}
 public function canNotAddOrDelete(){}
 
 //把数据库结果集转换格式，然后调用fill
+//[['id'=>5, 'name' => '小刚'],['id'=>6, 'name' => '小芳']]
+//　转换为　
+//[5 => ['id'=>5, 'name' => '小刚'], 6 => ['id'=>6, 'name' => '小芳']]
 public function dataWithId($data, $idField = 'id', $overWrite = false)
 
 ```
