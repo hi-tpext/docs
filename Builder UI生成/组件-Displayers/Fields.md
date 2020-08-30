@@ -1,5 +1,20 @@
 多个组件组合为一个，多用于排版布局。
 
+主要方法：
+
+```php
+//with 包含多个其他组件
+public function with(...$fields){}
+
+//设置　内部组件的值(数组)　同: fill,overWrite=ture
+public function value($val){}
+
+//设置　内部组件的值(数组)，overWrite是否覆盖.
+public function fill($data = [], $overWrite = false){}
+
+```
+
+
 #### 用法
 
 有两种写法:
