@@ -7,8 +7,11 @@
 //包含多个组件
 public function with(...$fields){}
 
-//设置内容组件的值(数组)
+//设置内容组件的值(数组),同fill,overWrite=true
 public function value($val){}
+
+设置内容组件的值(数组),overWrite是否覆盖
+public function fill($data = [], $overWrite = false){}
 
 //条目是否可[删除]
 public function cnaDelete($val){}
