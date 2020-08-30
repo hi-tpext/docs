@@ -22,7 +22,7 @@ public function canAdd($val){}
 //条目只读，不可[删除]或[添加]
 public function canNotAddOrDelete(){}
 
-//把数据库结果集转换格式
+//把数据库结果集转换格式，然后调用fill
 public function dataWithId($data, $idField = 'id', $overWrite = false)
 
 ```
