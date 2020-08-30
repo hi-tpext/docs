@@ -31,5 +31,5 @@ $form->items('attr_list', '产品属性')->dataWithId($attrList)->with(
      $form->text('name', '名称')->placeholder('属性名称，如生产日期')->maxlength(55)->required()->getWrapper()->addStyle('width:200px;'),
      $form->text('sort', '排序')->placeholder('规格名称，如颜色')->default(1)->required()->getWrapper()->addStyle('width:80px;'),
      $form->text('value', '属性值')->required()->getWrapper()->addStyle('min-width:70%;'),
-        )->help('【属性】不影响价格，仅展示');
+)->help('【属性】不影响价格，仅展示');
 ```
