@@ -10,10 +10,10 @@
 
 
 ```php
-        $table->fields('consignee', '收货人/电话')->with(
-            $table->show('consignee', '收货人'),
-            $table->show('mobile', '电话')->default('--')
-        );
+$table->fields('consignee', '收货人/电话')->with(
+      $table->show('consignee', '收货人'),
+      $table->show('mobile', '电话')->default('--')
+);
         
 ```
 显示：
@@ -22,10 +22,10 @@
 | 小明<br>13612345678  | 
 
 ```php
-        $table->fields('consignee', '收货人/电话')->with(
-            $table->field('consignee', '收货人'),
-            $table->field('mobile', '电话')->default('--')
-        );
+$table->fields('consignee', '收货人/电话')->with(
+     $table->field('consignee', '收货人'),
+     $table->field('mobile', '电话')->default('--')
+);
 ```
 显示：
 |  收货人/电话   |
