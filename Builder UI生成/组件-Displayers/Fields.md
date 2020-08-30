@@ -1,5 +1,6 @@
 多个组件组合为一个，多用于排版布局。
 
+####用法
 有两种写法:
 - 1 使用with;
 ```php
@@ -20,6 +21,8 @@ $form->text('spu', 'spu码')->maxlength(100);
 
 $form->fieldsEnd();//结束
 ```
+
+####功能
 - 功能1:页面布局，左边`col-md-7` + 右边`col-md-5`,把页码整体做一个基本的划分。　　
 ```php
 $form->fields('', '', 7)->size(0, 12)->showLabel(false);
