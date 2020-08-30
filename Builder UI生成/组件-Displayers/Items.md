@@ -41,7 +41,7 @@ $form->items('attr_list', '产品属性')->dataWithId($attrList)->with(
 )->help('【属性】不影响价格，仅展示');
 ```
 
-- 2 数据展示
+- 2 数据展示，针对数据量比较少的情况，比如在订单详情页显示订单日志，日志数量一般不会太多，把相关日志一次性显示为列表。
 ```php
 $logList = model\ShopOrderAction::where(['order_id' => $data['id']])->order('id desc')->select();
 
