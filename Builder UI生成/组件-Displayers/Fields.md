@@ -23,10 +23,18 @@ $form->fieldsEnd();//结束
 布局：　　
 ```php
 $form->fields('', '', 7)->size(0, 12)->showLabel(false);
-//包含组件
+$form->text('name', '名称')->required()->maxlength(55);
+$form->text('spu', 'spu码')->maxlength(100);
+$form->tags('keyword', '关键字')->maxlength(255);
+$form->textarea('description', '摘要')->maxlength(255);
+$form->wangEditor('content', '产品详情')->required();
 $form->fieldsEnd();
 
 $form->fields('', '', 5)->size(0, 12)->showLabel(false);
-//包含组件
+$form->image('logo', '封面图')->required()->mediumSize();
+$form->text('market_sale', '市场价', 4);
+$form->text('cost_price', '成本价', 4);
+$form->number('sort', '排序')->default(0);
+$form->number('weight', '重量')->default(1000)->help('单位:克');
 $form->fieldsEnd();
 ```
