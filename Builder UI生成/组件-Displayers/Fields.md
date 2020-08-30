@@ -50,9 +50,8 @@ $form->fieldsEnd();
 $form->fields('省/市/区');
 $form->select('province', ' ', 4)->size(0, 12)->showLabel(false)->optionsData($selectP, 'ext_name')->dataUrl(url('api/areacity/province'), 'ext_name')->withNext(
      $form->select('city', ' ', 4)->size(0, 12)->showLabel(false)->optionsData($selectC, 'ext_name')->dataUrl(url('api/areacity/city'), 'ext_name')->withNext(
-           $form->select('area', ' ', 4)->size(0, 12)->showLabel(false)->optionsData($selectA, 'ext_name')->dataUrl(url('api/areacity/area'), 'ext_name')
-            )
-        );
+           $form->select('area', ' ', 4)->size(0, 12)->showLabel(false)->optionsData($selectA, 'ext_name')->dataUrl(url('api/areacity/area'), 'ext_name'))
+);
 $form->fieldsEnd();
 
 ```　
