@@ -34,3 +34,17 @@ $form->items('attr_list', '产品属性')->dataWithId($attrList)->with(
      $form->text('value', '属性值')->required()->getWrapper()->addStyle('min-width:70%;')
 )->help('【属性】不影响价格，仅展示');
 ```
+
+- 2 数据展示
+```php
+$logList = model\ShopOrderAction::where(['order_id' => $data['id']])->order('id desc')->select();
+
+$form->items('log_list', '操作日志')->dataWithId($logList)->with(
+     $form->show('action_note', '操作备注'),
+     $form->show('status_desc', '描述'),
+     $form->match('order_status', '订单状态')->options(OrderModel::$order_status_types),
+     $form->match('pay_status', '支付状态')->options(OrderModel::$pay_status_types),
+     $form->match('shipping_status', '物流状态')->options(OrderModel::$shipping_status_types),
+     $form->show('create_time', '时间')
+)->canAddcanNotAddOrDelete();
+```
