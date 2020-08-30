@@ -43,3 +43,16 @@ $form->number('sort', '排序')->default(0);
 $form->number('weight', '重量')->default(1000)->help('单位:克');
 $form->fieldsEnd();
 ```
+
+- 功能2 : 把一些相关的字段组合到一起.
+
+```php
+$form->fields('省/市/区');
+$form->select('province', ' ', 4)->size(0, 12)->showLabel(false)->optionsData($selectP, 'ext_name')->dataUrl(url('api/areacity/province'), 'ext_name')->withNext(
+     $form->select('city', ' ', 4)->size(0, 12)->showLabel(false)->optionsData($selectC, 'ext_name')->dataUrl(url('api/areacity/city'), 'ext_name')->withNext(
+           $form->select('area', ' ', 4)->size(0, 12)->showLabel(false)->optionsData($selectA, 'ext_name')->dataUrl(url('api/areacity/area'), 'ext_name')
+            )
+        );
+$form->fieldsEnd();
+
+```　
