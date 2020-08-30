@@ -12,7 +12,9 @@ $form->fields('', '基本信息', 7)->with(
 - 2 使用fieldsEnd;
 ```php
 $form->fields('', '基本信息', 7);
+//写包含的组件
 $form->text('name', '名称')->required()->maxlength(55);
 $form->text('spu', 'spu码')->maxlength(100);
-$form->fieldsEnd();
+
+$form->fieldsEnd();//结束
 ```
