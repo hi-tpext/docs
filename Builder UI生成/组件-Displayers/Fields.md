@@ -54,3 +54,16 @@ $form->select('province', ' ', 4)->size(0, 12)->showLabel(false)->optionsData($s
 );
 $form->fieldsEnd();
 ```
+- 功能3 : `table`中使用，把相关字段合并到同一列，避免字段过多时表格显示不便。
+
+```php
+$table->fields('consignee', '收货人/电话')->with(
+      $table->show('consignee', '收货人'),
+      $table->show('mobile', '电话')->default('--')
+);
+        
+```
+显示：
+|  收货人/电话   |
+|  :----:  |
+| 小明<br>13612345678  | 
