@@ -24,6 +24,7 @@ public function canNotAddOrDelete(){}
 
 ```
 ### 主要用法
+- 1 数据录入
 ```php
 $attrList = $isEdit ? ShopGoodsAttr::where(['goods_id' => $data['id']])->order('sort')->select() : [];
 
