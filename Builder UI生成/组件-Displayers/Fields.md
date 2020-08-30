@@ -53,5 +53,4 @@ $form->select('province', ' ', 4)->size(0, 12)->showLabel(false)->optionsData($s
            $form->select('area', ' ', 4)->size(0, 12)->showLabel(false)->optionsData($selectA, 'ext_name')->dataUrl(url('api/areacity/area'), 'ext_name'))
 );
 $form->fieldsEnd();
-
-```　
+```
