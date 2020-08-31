@@ -32,7 +32,7 @@ $table->match('type', '类型')->options([
 | 3  |  未知 | n　 |
 
 ```php
-//指定text/key字段
+//指定text字段
 $genderMocel = new GenderType;
 $table->match('gender','性别')->optionsData($genderMocel::all(), 'name')->value(3);//默认主键`id`作为key
 //输出 ：未知
