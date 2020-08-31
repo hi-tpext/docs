@@ -84,6 +84,9 @@ class Member extends Controller
 
 那么可以：`$search->select('member_id', '会员')->dataUrl(url('/admin/member/selectPage'));`
 
+显示：
+小明
+
 其他情况可以自己写`action`实现
 
 实例：
