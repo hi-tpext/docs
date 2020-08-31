@@ -12,8 +12,8 @@ public function display($content = '', $vars = [], $config = []){}
 ```php
 $form->html('', 'tree')->vale($treeHtml);
 
-$form->html('', 'tree')->fetch('tree',['data' => $data]);
+$form->html('', 'tree')->fetch('tree',　['data' => $data]);
 
-$form->html('', 'tree')->display('<p>{$name}</p>',['name' => '小明']);
+$form->html('', 'tree')->display('<p>{$name}</p>',　['name' => '小明']);
 
 ```
