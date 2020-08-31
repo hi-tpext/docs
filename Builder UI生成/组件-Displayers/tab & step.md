@@ -1,6 +1,6 @@
 tap和step是`form`内置的用于分割组件的方法。
 
-实例：
+tab实例：
 ```php
 $form->tab('基本信息');//tab 1
 
@@ -27,3 +27,6 @@ if ($isEdit) {
      $form->show('update_time', '修改时间');
 }
 ```
+step实例：
+
+不常用也不实用，用法跟`tap`差不多
