@@ -1,7 +1,9 @@
 多个值匹配
 
+HasOptions　trait 为[Checkbox][Radio][Select][MultipleSelect][Match][Matches]共有。
 
-相当于只读的`radio`。
+
+相当于只读的`checkbox`。
 
 ```php
 $table->match('type', '类型')->options([
