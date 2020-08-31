@@ -39,7 +39,7 @@ use \app\common\model\GenderType;
 $form->select('gender','性别')->optionsData(GenderType::all(), 'name', 'key');
 ```
 ```html
-<select>
+<select name="gender">
 <option vlaue="m">男</option>
 <option vlaue="f">女</option>
 <option vlaue="n">未知</option>
@@ -51,7 +51,7 @@ $form->select('gender','性别')->optionsData(GenderType::all(), 'name', 'key');
 $form->select('gender','性别')->optionsData(GenderType::all(), 'name');
 ```
 ```html
-<select>
+<select name="gender">
 <option vlaue="1">男</option>
 <option vlaue="2">女</option>
 <option vlaue="3">未知</option>
