@@ -80,6 +80,7 @@ class Member extends Controller
         $this->selectSearch = 'username|nickname|mobile';//设置搜索字段
     }
 }
+```
 
 那么可以：`$search->select('member_id', '会员')->dataUrl(url('/admin/member/selectPage'), 'nickname');`
 
