@@ -238,10 +238,10 @@ btnPostRowid($name = '', $postUrl, $label = '', $class = 'btn-secondary', $icon 
 
 ```php
 ->mapClass([
-                'delete' => ['hidden' => '__h_del__'],
-                'enable' => ['hidden' => '__h_en__'],
-                'disable' => ['hidden' => '__h_dis__'],
-            ]);
+            'delete' => ['hidden' => '__h_del__'],
+            'enable' => ['hidden' => '__h_en__'],
+            'disable' => ['hidden' => '__h_dis__'],
+  　　　　]);
 ```
 
 - `delete|enable|disable`按钮名称，如果是自定义[btnLink/btnPostRowid]则为传入的`$name`.
