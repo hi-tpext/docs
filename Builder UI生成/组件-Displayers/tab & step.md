@@ -26,3 +26,4 @@ if ($isEdit) {
      $form->show('create_time', '注册时间');
      $form->show('update_time', '修改时间');
 }
+```
