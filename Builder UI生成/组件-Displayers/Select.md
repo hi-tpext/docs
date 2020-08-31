@@ -45,6 +45,41 @@ $search->select('province', '省份')->dataUrl(url('api/areacity/province'), 'ex
 `tpext\builder\traits\actions\HasIndex`已内置了以当前控制器模型`$dataModel`为基础的selectPage
 
 如有控制器：`\app\admin\controller\Member`
+```php
+<?php
+
+namespace app\admin\controller;
+
+use app\common\model;
+use think\Controller;
+use tpext\builder\traits\HasBuilder;
+
+/**
+ * Undocumented class
+ * @title 会员管理
+ */
+class Member extends Controller
+{
+    use HasBuilder;
+
+    /**
+     * Undocumented variable
+     *
+     * @var model\Member
+     */
+    protected $dataModel;
+
+    protected function initialize()
+    {
+        $this->dataModel = new model\Member;
+        $this->pageTitle = '会员管理';
+        $this->enableField = 'status';
+        $this->pagesize = 8;
+
+        $this->selectTextField = '{id}#{nickname}({mobile})';//设置下拉显示格式
+        $this->selectSearch = 'username|nickname|mobile';//设置搜索字段
+    }
+}
 
 那么可以：`$search->select('member_id', '会员')->dataUrl(url('/admin/member/selectPage'), 'nickname');`
 
