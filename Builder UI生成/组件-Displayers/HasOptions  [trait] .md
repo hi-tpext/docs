@@ -1,4 +1,4 @@
-`HasOptions`　trait 为[Checkbox][Radio][Select][MultipleSelect][Match][Matches]共有。
+`HasOptions`　trait 为`Checkbox` `Radio` `Select` `MultipleSelect` `Match` `Matches` 共有。
 ```php
 //选项,传入数组　如 [1=>'男',　2=>'女'];
 public function options($options){}
