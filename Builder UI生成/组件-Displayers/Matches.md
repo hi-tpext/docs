@@ -6,19 +6,11 @@ HasOptions　trait 为[Checkbox][Radio][Select][MultipleSelect][Match][Matches]�
 相当于只读的`checkbox`。
 
 ```php
-$table->match('type', '类型')->options([
-    1 => '<label class="label label-success">增加</label>', 
-    2 => '<label class="label label-danger">支出</label>'
-])->value(1);
-
-//输出 ：增加
-```
-
-```php
-$table->match('type', '类型')->options([
-    1 => '男', 
-    2 => '女',
-    3 => '未知'
+$table->match('hobbies', '爱好')->options([
+    1 => '唱歌', 
+    2 => '跳舞',
+    3 => '爬山',
+    4 => '游泳'
 ])->value(2);
 
 //输出 ：女
