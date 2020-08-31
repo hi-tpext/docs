@@ -27,9 +27,9 @@ public function canNotAddOrDelete(){}
 //　转换为　
 //[5 => ['id'=>5, 'name' => '小刚'], 6 => ['id'=>6, 'name' => '小芳']]
 public function dataWithId($data, $idField = 'id', $overWrite = false)
-
 ```
 ### 主要用法
+
 - 1 数据录入
 ```php
 $attrList = $isEdit ? ShopGoodsAttr::where(['goods_id' => $data['id']])->order('sort')->select() : [];
