@@ -2,4 +2,4 @@
 
 内容可带html
 
-相当于带label的field
+相当于带label的`field`
