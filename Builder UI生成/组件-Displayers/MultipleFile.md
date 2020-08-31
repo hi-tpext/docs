@@ -29,4 +29,7 @@ public function largeSize(){}
 
 //自定缩略图中尺寸[w x h]
 public function thumbSize($w, $h){}
+
+//参数设置
+public function jsOptions($options){}
 ```
