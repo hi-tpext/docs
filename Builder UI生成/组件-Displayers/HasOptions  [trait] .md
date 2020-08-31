@@ -31,9 +31,12 @@ optionsData使用说明：　　
 | 3  |  未知 | n　 |
 
 ```php
+use \app\common\model\GenderType;
+```
+
+```php
 //指定text/key字段
-$genderMocel = new GenderType;
-$form->select('gender','性别')->optionsData($genderMocel::all(), 'name', 'key');
+$form->select('gender','性别')->optionsData(GenderType::all(), 'name', 'key');
 ```
 ```html
 <select>
@@ -45,8 +48,7 @@ $form->select('gender','性别')->optionsData($genderMocel::all(), 'name', 'key'
 //指定text，主键id作为key:
 
 ```php
-$genderMocel = new GenderType;
-$form->select('gender','性别')->optionsData($genderMocel::all(), 'name');
+$form->select('gender','性别')->optionsData(GenderType::all(), 'name');
 ```
 ```html
 <select>
