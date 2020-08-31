@@ -12,3 +12,13 @@ $table->match('type', '类型')->options([
 
 //输出 ：增加
 ```
+
+```php
+$table->match('type', '类型')->options([
+    1 => '男', 
+    2 => '女',
+    3 => '未知'
+])->value(2);
+
+//输出 ：女
+```
