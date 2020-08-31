@@ -11,29 +11,29 @@ $table->match('hobbies', '爱好')->options([
     2 => '跳舞',
     3 => '爬山',
     4 => '游泳'
-])->value(2);
+])->value('2,4');
 
-//输出 ：女
+//输出 ：跳舞、游泳
 ```
 
-数据库表: tp_gender_type ,模型　\app\common\model\GenderType;
+数据库表: tp_hobby_type ,模型　\app\common\model\HobbyType;
 
-| id |name| key |
+| id |name| hoby |
 | ---- | ---- | ---- |
-| 1  |  男 | m　 |
-| 2  |  女 | f　 |
-| 3  |  未知 | n　 |
+| 1  |  唱歌 | sing　 |
+| 2  |  跳舞 | dance　 |
+| 3  |  爬山 | climb　 |
+| 4  |  游泳 | swim　 |
 
 ```php
 //指定text字段
-$genderMocel = new GenderType;
-$table->match('gender','性别')->optionsData($genderMocel::all(), 'name')->value(3);//默认主键`id`作为key
-//输出 ：未知
+$table->match('hobbies','爱好')->optionsData(HobbyType::all(), 'name')->value('1,3,4');//默认主键`id`作为key
+//输出 ：唱歌、爬山、游泳
 ```
 
 ```php
 //指定text/key字段
-$genderMocel = new GenderType;
-$table->match('gender','性别')->optionsData($genderMocel::all(), 'name', 'key')->value('m');
-//输出 ：男
+$hobbyMocel = new HobbyType;
+$table->match('hobbies','爱好')->optionsData(HobbyType::all(), 'name', 'hoby')->value('dance,climb');
+//输出 ：跳舞、爬山
 ```
