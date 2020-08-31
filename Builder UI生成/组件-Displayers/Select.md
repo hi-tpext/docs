@@ -48,41 +48,41 @@ $search->select('province', '省份')->dataUrl(url('api/areacity/province'), 'ex
 实例：
 ```
 /**
-     * Undocumented function
-     *
-     * @title 下拉选择用户
-     * @return mixed
-     */
-    public function selectPageUser()
-    {
-        $q = input('q');
-        $page = input('page/d');
+* Undocumented function
+*
+* @title 下拉选择用户
+* @return mixed
+*/
+public function selectPageUser()
+{
+    $q = input('q');
+    $page = input('page/d');
 
-        $page = $page < 1 ? 1 : $page;
-        $pagesize = 20;
+    $page = $page < 1 ? 1 : $page;
+    $pagesize = 20;
 
-        $where = [];
+    $where = [];
 
-        if ($q) {
-            $where[] = ['nickname|mobile|username', 'like', '%' . $q . '%'];
-        }
-
-        $list = $this->dataModel->where($where)->order('nickname')->limit(($page - 1) * $pagesize, $pagesize)->select();
-
-        $data = [];
-
-        foreach ($list as $li) {
-            $data[] = [
-                'id' => $li['id'],
-                'text' => $li['id_name'],
-            ];
-        }
-
-        return json(
-            [
-                'data' => $data,
-                'has_more' => count($data) == $pagesize,
-            ]
-        );
+    if ($q) {
+        $where[] = ['nickname|mobile|username', 'like', '%' . $q . '%'];
     }
+
+    $list = $this->dataModel->where($where)->order('nickname')->limit(($page - 1) * $pagesize, $pagesize)->select();
+
+    $data = [];
+
+    foreach ($list as $li) {
+        $data[] = [
+            'id' => $li['id'],
+            'text' => $li['id_name'],
+        ];
+    }
+
+    return json(
+        [
+            'data' => $data,
+            'has_more' => count($data) == $pagesize,
+        ]
+    );
+}
 ```
