@@ -52,5 +52,5 @@ $form->items('log_list', '操作日志')->dataWithId($logList)->with(
      $form->match('pay_status', '支付状态')->options(OrderModel::$pay_status_types),
      $form->match('shipping_status', '物流状态')->options(OrderModel::$shipping_status_types),
      $form->show('create_time', '时间')
-)->canAddcanNotAddOrDelete();
+)->canNotAddOrDelete();
 ```
