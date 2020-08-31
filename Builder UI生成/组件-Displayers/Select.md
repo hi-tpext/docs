@@ -17,6 +17,5 @@ public function jsOptions($options){}
 
 //联动，当此select的选值改变时，nextSelect会重新加载，nextSelect必须设置了ajax加载url
 public function withNext($nextSelect){}
-
 ```
 HasOptions　trait 为[Checkbox][Radio][Select][MultipleSelect][Match][Matches]共有。
