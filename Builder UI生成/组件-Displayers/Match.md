@@ -2,7 +2,7 @@
 
 HasOptions　trait 为[Checkbox][Radio][Select][MultipleSelect][Match][Matches]共有。
 
-分别相当于只读的`radio`。
+相当于只读的`radio`。
 
 ```php
 $table->match('type', '类型')->options([
