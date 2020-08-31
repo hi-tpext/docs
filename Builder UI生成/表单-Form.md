@@ -211,8 +211,7 @@ class User extends Controller
        $form->text('school', '学校', 6),
        $form->text('major', '专业', 6)
    );
-        //使用 with接收不定数量的`Field` 就不需要调用 fieldsEnd
-        //
+   //使用 with接收不定数量的`Field` 就不需要调用 fieldsEnd
 ```
 > items 条目列表，如产品规格，和产品分属不同的数据表
 
