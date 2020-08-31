@@ -29,6 +29,11 @@ class Admin extends Controller
     //删除
     use actions\HasDelete;
     
+     /**
+     * 数据筛选条件，配合buildSearch实用，若不需要搜索，这两个方法不用重写
+     *
+     * @return void
+     */
     protected function filterWhere()
     {
         $searchData = request()->post();
