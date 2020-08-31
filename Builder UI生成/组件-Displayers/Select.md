@@ -87,9 +87,9 @@ class Member extends Controller
 显示：
 ```html
 <select name="member_id">
-<option vlaue="1">1#小明(13312345678)</option>
-<option vlaue="2">2#小红(13312345677)</option>
-<option vlaue="3">3#小刚(13312345676)</option>
+<option vlaue="1001">1001#小明(13312345678)</option>
+<option vlaue="1002">1002#小红(13312345677)</option>
+<option vlaue="1003">1003#小刚(13312345676)</option>
 <!--更多-->
 </select>
 ```
