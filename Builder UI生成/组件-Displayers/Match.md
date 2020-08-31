@@ -23,6 +23,10 @@ $table->match('type', '类型')->options([
 //输出 ：女
 ```
 
+```php
+use \app\common\model\GenderType;
+```
+
 数据库表: tp_gender_type ,模型　\app\common\model\GenderType;
 
 | id |name| key |
