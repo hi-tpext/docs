@@ -44,7 +44,12 @@ $search->select('province', '省份')->dataUrl(url('api/areacity/province'), 'ex
 ### ajax 数据源
 `tpext\builder\traits\actions\HasIndex`已内置了以当前控制器模型`$dataModel`为基础的selectPage
 
-其他情况可以自己写action
+如有控制器：`\app\admin\controller\Member`
+
+那么可以：`$search->select('member_id', '会员')->dataUrl(url('api/member/selectPage'), 'nickname');`
+
+其他情况可以自己写`action`实现
+
 实例：
 ```
 /**
