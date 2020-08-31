@@ -40,4 +40,4 @@ $table->fields('consignee', '收货人/电话')->with(
 |  :----:  |
 | 小明13612345678  | 
 
-新版本中为`show`新加了个方法`inline()`，table中实用`inline`的`show`和`field`表现一样,要说区别，就是`field`少敲几次键盘。
+新版本中为`show`新加了个方法`inline()`，table中实用`inline`的`show`和`field`表现一样,要说区别，就是实用`field`可少敲几次键盘。
