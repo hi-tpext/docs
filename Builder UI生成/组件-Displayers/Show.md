@@ -12,7 +12,7 @@ public function cut($len = 0, $more = '...'){}
 public function inline($val){}
 ```
 
-`table`中使用，和`show`类似。
+`table`中使用`fiel`和实用`show`效果差不多。
 
 `table`中使用`fields`里面使用`show`和`field`有略微差别。`show`有div包裹着，是块级元素，`field`是行内元素。
 
