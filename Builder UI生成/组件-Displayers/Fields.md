@@ -11,9 +11,7 @@ public function value($val){}
 
 //设置　内部组件的值(数组)，overWrite是否覆盖.
 public function fill($data = [], $overWrite = false){}
-
 ```
-
 
 #### 用法
 
