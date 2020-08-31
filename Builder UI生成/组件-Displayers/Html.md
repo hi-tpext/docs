@@ -11,12 +11,12 @@ public function display($content = '', $vars = [], $config = []){}
 ### 实例
 ```php
 
-$form->html('', 'tree');
+$form->html('tree', 'tree');//填充数据里面有`tree`这个字段
 
-$form->html('', 'tree')->vale($treeHtml);
+$form->html('tree', 'tree')->vale($treeHtml);
 
-$form->html('', 'tree')->fetch('tree',　['data' => $data]);
+$form->html('tree', 'tree')->fetch('tree',　['data' => $data]);
 
-$form->html('', 'tree')->display('<p>{$name}</p>',　['name' => '小明']);
+$form->html('tree', 'tree')->display('<p>{$name}</p>',　['name' => '小明']);
 
 ```
