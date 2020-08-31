@@ -2,8 +2,6 @@ tap和step是`form`内置的用于分割组件的方法。
 
 实例：
 ```php
-
-```
 $form->tab('基本信息');
 $form->image('avatar', '头像')->thumbSize(50, 50);
 $form->text('username', '账号')->required()->maxlength(20);
