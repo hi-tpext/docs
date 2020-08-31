@@ -1,5 +1,7 @@
 匹配
 
+HasOptions　trait 为[Checkbox][Radio][Select][MultipleSelect][Match][Matches]共有。
+
 分别相当于只读的`radio`。
 
 ```php
