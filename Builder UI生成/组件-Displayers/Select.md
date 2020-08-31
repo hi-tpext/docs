@@ -1,5 +1,7 @@
 下拉选择
 
+`HasOptions`　trait 为`Checkbox` `Radio` `Select` `MultipleSelect` `Match` `Matches` 共有。
+
 主要方法：
 
 ```
