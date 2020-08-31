@@ -2,7 +2,7 @@ tap和step是`form`内置的用于分割组件的方法。
 
 实例：
 ```php
-$form->tab('基本信息');tab 1
+$form->tab('基本信息');//tab 1
 
 $form->image('avatar', '头像')->thumbSize(50, 50);
 $form->text('username', '账号')->required()->maxlength(20);
@@ -10,7 +10,7 @@ $form->text('nickname', '昵称')->required()->maxlength(20);
 $form->text('mobile', '手机号')->maxlength(11);
 $form->text('email', '邮件')->maxlength(60);
 //
-$form->tab('其他信息');tab 2
+$form->tab('其他信息');//tab 2
 
 $form->textarea('remark', '备注')->maxlength(255);
 $form->switchBtn('status', '状态')->default(1);
