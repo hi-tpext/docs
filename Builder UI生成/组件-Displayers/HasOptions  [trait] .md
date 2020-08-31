@@ -6,7 +6,7 @@ public function options($options){}
 //键值一样的选项,传入数组　如 ['男', '女']
 public function texts($texts){}
 
-//传入查询结果集　textField　为表中可作为显示文本的字段
+//传入查询结果集　textField　为表中可作为显示文本的字段，idField　为表中可作为key的字段
 public function optionsData($optionsData, $textField = '', $idField = 'id'){}
 
 /*以下为3个方法为增加/合并选项操作，在上面3个方法设置了选项以后再使用*/
