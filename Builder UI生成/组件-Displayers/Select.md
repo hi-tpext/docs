@@ -85,7 +85,15 @@ class Member extends Controller
 那么可以：`$search->select('member_id', '会员')->dataUrl(url('/admin/member/selectPage'));`
 
 显示：
-小明
+```html
+<select name="member_id">
+<option vlaue="1">1#小明(13312345678)</option>
+<option vlaue="2">2#小红(13312345677)</option>
+<option vlaue="3">3#小刚(13312345676)</option>
+<!--更多-->
+</select>
+
+```
 
 其他情况可以自己写`action`实现
 
