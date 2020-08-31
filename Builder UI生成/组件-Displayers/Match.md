@@ -33,14 +33,12 @@ $table->match('type', '类型')->options([
 
 ```php
 //指定text字段
-$genderMocel = new GenderType;
-$table->match('gender','性别')->optionsData($genderMocel::all(), 'name')->value(3);//默认主键`id`作为key
+$table->match('gender','性别')->optionsData(GenderType::all(), 'name')->value(3);//默认主键`id`作为key
 //输出 ：未知
 ```
 
 ```php
 //指定text/key字段
-$genderMocel = new GenderType;
-$table->match('gender','性别')->optionsData($genderMocel::all(), 'name', 'key')->value('m');
+$table->match('gender','性别')->optionsData(GenderType::all(), 'name', 'key')->value('m');
 //输出 ：男
 ```
