@@ -19,3 +19,15 @@ public function jsOptions($options){}
 public function withNext($nextSelect){}
 ```
 HasOptions　trait 为[Checkbox][Radio][Select][MultipleSelect][Match][Matches]共有。
+
+### 关于联动
+
+```php
+ $search->select('province', '省份')->dataUrl(url('api/areacity/province'), 'ext_name')->withNext(
+     $search->select('city', '城市')->dataUrl(url('api/areacity/city'), 'ext_name')->withNext(
+         $search->select('area', '地区')->dataUrl(url('api/areacity/area'), 'ext_name')
+     )
+ );
+ //省份变化了，会以选中的省份值作为参数去请求`api/areacity/city`把下面的城市列出来，
+ //城市变化也类似
+```
