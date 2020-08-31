@@ -38,3 +38,45 @@ $city = $search->select('city', '城市')->dataUrl(url('api/areacity/city'), 'ex
 $search->select('province', '省份')->dataUrl(url('api/areacity/province'), 'ext_name')->withNext($city);
 ```
 但一般不这么用
+
+### ajax 数据源
+```
+/**
+     * Undocumented function
+     *
+     * @title 下拉选择用户
+     * @return mixed
+     */
+    public function selectPage()
+    {
+        $q = input('q');
+        $page = input('page/d');
+
+        $page = $page < 1 ? 1 : $page;
+        $pagesize = 20;
+
+        $where = [];
+
+        if ($q) {
+            $where[] = ['nickname|mobile|username', 'like', '%' . $q . '%'];
+        }
+
+        $list = $this->dataModel->where($where)->order('nickname')->limit(($page - 1) * $pagesize, $pagesize)->select();
+
+        $data = [];
+
+        foreach ($list as $li) {
+            $data[] = [
+                'id' => $li['id'],
+                'text' => $li['id_name'],
+            ];
+        }
+
+        return json(
+            [
+                'data' => $data,
+                'has_more' => count($data) == $pagesize,
+            ]
+        );
+    }
+```
