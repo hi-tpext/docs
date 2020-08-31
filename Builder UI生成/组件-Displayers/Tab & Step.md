@@ -1,4 +1,4 @@
-tap和step是`form`内置的用于分割组件的方法。
+Tap和Step是`form`内置的用于分割组件的方法。
 
 tab实例：
 ```php
