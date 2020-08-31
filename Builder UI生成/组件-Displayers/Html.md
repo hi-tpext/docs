@@ -10,6 +10,9 @@ public function display($content = '', $vars = [], $config = []){}
 ```
 ### 实例
 ```php
+
+$form->html('', 'tree');
+
 $form->html('', 'tree')->vale($treeHtml);
 
 $form->html('', 'tree')->fetch('tree',　['data' => $data]);
