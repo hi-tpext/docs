@@ -26,6 +26,10 @@ $table->match('hobbies', '爱好')->options([
 | 4  |  游泳 | swim　 |
 
 ```php
+use \app\common\model\HobbyType;
+```
+
+```php
 //指定text字段
 $table->match('hobbies','爱好')->optionsData(HobbyType::all(), 'name')->value('1,3,4');//默认主键`id`作为key
 //输出 ：唱歌、爬山、游泳
