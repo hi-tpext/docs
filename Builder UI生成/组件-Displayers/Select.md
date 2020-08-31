@@ -40,6 +40,10 @@ $search->select('province', '省份')->dataUrl(url('api/areacity/province'), 'ex
 但一般不这么用
 
 ### ajax 数据源
+`tpext\builder\traits\actions\HasIndex`已内置了以当前控制器模型`$dataModel`为基础的selectPage
+
+其他情况可以自己写action
+实例：
 ```
 /**
      * Undocumented function
@@ -47,7 +51,7 @@ $search->select('province', '省份')->dataUrl(url('api/areacity/province'), 'ex
      * @title 下拉选择用户
      * @return mixed
      */
-    public function selectPage()
+    public function selectPageUser()
     {
         $q = input('q');
         $page = input('page/d');
