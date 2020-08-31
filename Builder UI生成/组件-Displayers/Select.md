@@ -82,7 +82,7 @@ class Member extends Controller
 }
 ```
 
-那么可以：`$search->select('member_id', '会员')->dataUrl(url('/admin/member/selectPage'), 'nickname');`
+那么可以：`$search->select('member_id', '会员')->dataUrl(url('/admin/member/selectPage'));`
 
 其他情况可以自己写`action`实现
 
