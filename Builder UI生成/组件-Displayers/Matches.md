@@ -37,7 +37,6 @@ $table->match('hobbies','爱好')->optionsData(HobbyType::all(), 'name')->value(
 
 ```php
 //指定text/key字段
-$hobbyMocel = new HobbyType;
 $table->match('hobbies','爱好')->optionsData(HobbyType::all(), 'name', 'hoby')->value('dance,climb');
 //输出 ：跳舞、爬山
 ```
