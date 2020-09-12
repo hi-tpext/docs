@@ -38,7 +38,7 @@
 
 >fill()       填充
 
->to()         简单的转换
+>to()         简单的转换  
 如 `$table->show('name','姓名')->to('{val}#{mobile}')`，{val}代表当前字段`name`值,{mobile}为这条记录中的`mobile`字段值。
 
 >mapClassWhen() /mapClassWhenGroup 样式匹配
