@@ -6,39 +6,38 @@
 
 ##### 主要通用方法
 
->class()      设置field的class 
+>class($val)                 设置field的class 
 
->labelClass() 设置label的class 
+>labelClass($val)            设置label的class 
 
->attr()       设置field的属性 
+>attr($val)                  设置field的属性 
 
->addClass()   添加field的class
+>addClass($val)              添加field的class
 
->addAttr()    添加field的属性
+>addAttr($val)               添加field的属性
 
->addStyle()   添加field的style
+>addStyle($val)              添加field的style
 
->labelAttr()  添加label的属性
+>labelAttr($val)             添加label的属性
 
->size()       设置大小(label,field)，默认: 2, 8
+>size($label, $elemetm)      设置大小(label,field)，默认: 2, 8
 
->help()       添加帮助信息
+>help($text)                 添加帮助信息
 
->readonly()   只读
+>readonly($val =true)        只读
 
->disabled()   禁用
+>disabled($val =true)        禁用
 
->required()   必填(主要是前端js验证，不涉及后端)
+>required($val =true)        必填(主要是前端js验证，不涉及后端)
 
->showLabel()  是否显示label
+>showLabel($val =true)       是否显示label
 
->default()    默认值
+>default($val)               默认值
 
->value()      设置值
-
->fill()       填充
+>value($val)                 设置值
 
 >to()         简单的转换  
+
 如 `$table->show('name','姓名')->to('{val}#{mobile}')`  
 
 {val}代表当前字段`name`值,{mobile}为这条记录中的`mobile`字段值。
