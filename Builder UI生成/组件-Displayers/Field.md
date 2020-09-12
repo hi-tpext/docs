@@ -5,7 +5,7 @@
 `form`中使用：无label, 不支持col-md-大小控制。
 
 ##### 主要通用方法
-|  方法    |  说明    |  备注    |
+|  方法    |  说明    |  备注  | 实例|
 | :--: | :--: | :--: |
 |class($val)|设置field的class||
 |labelClass($val) | 设置label的class ||
