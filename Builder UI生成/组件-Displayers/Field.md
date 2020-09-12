@@ -10,7 +10,7 @@
 
 >labelClass() 设置label的class 
 
->attr()       设置field的class 
+>attr()       设置field的属性 
 
 >addClass()   添加field的class
 
