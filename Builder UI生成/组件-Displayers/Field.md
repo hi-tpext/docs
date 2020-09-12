@@ -6,7 +6,7 @@
 
 ##### 主要通用方法
 |  方法    |  说明    |  备注    |
-| :--: | ---- | ---- |
+| :--: | :--: | :--: |
 |class($val) | 设置field的class ||
 
 |labelClass($val) | 设置label的class ||
