@@ -20,7 +20,7 @@
 
 >labelAttr()  添加label的属性
 
->size()       设置大小(label,field)，默认:2,8
+>size()       设置大小(label,field)，默认: 2, 8
 
 >help()       添加帮助信息
 
