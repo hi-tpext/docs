@@ -43,7 +43,7 @@
 
 {val}代表当前字段`name`值,{mobile}为这条记录中的`mobile`字段值。
 
->mapClassWhen() /mapClassWhenGroup 样式匹配
+>mapClassWhen() / mapClassWhenGroup 样式匹配  
 
 如 `$table->match('open', '状态')->options(['0' => '关闭', '1' => '开启'])->mapClassWhen(1, 'hidden');
 $table->match('pay_status', '支付状态')->options(['0' => '未支付', '1' => '已支付', '2' =>'已关闭'])->mapClassWhenGroup([[1, 'success'], [2, 'danger']])
