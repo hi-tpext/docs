@@ -69,49 +69,6 @@ step
 
 >$colAttr   col其他attr
 
-##### 主要通用方法
-
->class()      设置field的class 
-
->labelClass() 设置label的class 
-
->attr()       设置field的class 
-
->addClass()   添加field的class
-
->addAttr()    添加field的属性
-
->addStyle()   添加field的style
-
->labelAttr()  添加label的属性
-
->size()       设置大小(label,field)，默认:2,8
-
->help()       添加帮助信息
-
->readonly()   只读
-
->disabled()   禁用
-
->required()   必填(主要是前端js验证，不涉及后端)
-
->showLabel()  是否显示label
-
->default()    默认值
-
->value()      设置值
-
->fill()       填充
-
->to()         简单的转换
-如 `$table->show('name','姓名')->to('{val}#{mobile}')`，{val}代表当前字段`name`值,{mobile}为这条记录中的`mobile`字段值。
-
->mapClassWhen() /mapClassWhenGroup 样式匹配
-
-如 `$table->match('open', '状态')->options(['0' => '关闭', '1' => '开启'])->mapClassWhen(1, 'hidden');
-$table->match('pay_status', '支付状态')->options(['0' => '未支付', '1' => '已支付', '2' =>'已关闭'])->mapClassWhenGroup([[1, 'success'], [2, 'danger']])
-`。
-
 ##### 多选[checkbox]、单选[radio]、下拉[select]
 
 >`options($data)`
