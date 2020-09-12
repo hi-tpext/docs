@@ -10,37 +10,37 @@
 |      |      |      |
 |      |      |      |
 |      |      |      |
-|class($val) | 设置field的class |
+|class($val) | 设置field的class ||
 
-|labelClass($val) | 设置label的class |
+|labelClass($val) | 设置label的class ||
 
-|attr($val) | 设置field的属性 |
+|attr($val) | 设置field的属性 ||
 
-|addClass($val) |添加field的class |
+|addClass($val) |添加field的class ||
 
-|addAttr($val) |添加field的属性 |
+|addAttr($val) |添加field的属性 ||
 
-|addStyle($val) |  添加field的style |
+|addStyle($val) |  添加field的style ||
 
-|labelAttr($val) | 添加label的属性 |
+|labelAttr($val) | 添加label的属性 ||
 
-|size($label, $elemetm) | 设置大小(label,field)，默认: 2, 8 |
+|size($label, $elemetm) | 设置大小(label,field)，默认: 2, 8 ||
 
-|help($text) | 添加帮助信息 |
+|help($text) | 添加帮助信息 ||
 
-|readonly($val =true) | 只读 |
+|readonly($val =true) | 只读 ||
 
-|disabled($val =true) | 禁用 |
+|disabled($val =true) | 禁用 ||
 
-|required($val =true) | 必填(主要是前端js验证，不涉及后端) |
+|required($val =true) | 必填(主要是前端js验证，不涉及后端) ||
 
-|showLabel($val =true) | 是否显示label |
+|showLabel($val =true) | 是否显示label ||
 
-|default($val) | 默认值 |
+|default($val) | 默认值 ||
 
-|value($val) | 设置值 |
+|value($val) | 设置值 ||
 
-|to($tpl) | 简单的转换 |
+|to($tpl) | 简单的转换 ||
 
 如 `$table->show('name','姓名')->to('{val}#{mobile}')`  
 
