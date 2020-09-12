@@ -6,7 +6,7 @@
 
 ##### 主要通用方法
 |  方法    |  说明    |  备注  |
-| :--: | :--: | :--: |
+| :-- | :-- | :-- |
 |class($val)|设置field的class||
 |labelClass($val) | 设置label的class ||
 |attr($val) | 设置field的属性 ||
@@ -23,8 +23,8 @@
 |default($val) | 默认值 ||
 |value($val) | 设置值 ||
 |to($tpl) | 简单的转换 ||
-|mapClassWhen($v, $c, $f = '', $l = 'in_array') | 样式匹配 ||
-|mapClassWhenGroup([[$v, $c, $f = '', $l]]) | 样式组匹配 ||
+|mapClassWhen() | 样式匹配 ||
+|mapClassWhenGroup() | 样式组匹配 ||
 
 如 `$table->show('name','姓名')->to('{val}#{mobile}')`  
 {val}代表当前字段`name`值,{mobile}为这条记录中的`mobile`字段值。
