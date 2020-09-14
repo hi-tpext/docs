@@ -27,6 +27,7 @@
 |mapClassWhenGroup() | 样式组匹配 ||
 
 >to  
+
 如 
 ```php
 $table->show('name','姓名')->to('{val}#{mobile}')`;
