@@ -43,3 +43,42 @@ $table->match('open', '状态')->options(['0' => '关闭', '1' => '开启'])->ma
 $table->match('pay_status', '支付状态')->options(['0' => '未支付', '1' => '已支付', '2' =>'已关闭'])->mapClassWhenGroup([[1, 'success'], [2, 'danger']])
 `。
 ```
+css 样式：
+```css
+span.the-field.default {
+    color: #8b95a5;
+}
+span.the-field.primary {
+    color: #33cabb;
+}
+span.the-field.success {
+    color: #72b754;
+}
+span.the-field.info {
+    color: #48b0f7;
+}
+span.the-field.warning {
+    color: #faa64b;
+}
+span.the-field.danger {
+    color: #f96868;
+}
+span.the-field.dark {
+    color: #465161;
+}
+span.the-field.secondary {
+    color: #e4e7ea;
+}
+span.the-field.purple {
+    color: #926dde;
+}
+span.the-field.pink {
+    color: #f96197;
+}
+span.the-field.cyan {
+    color: #57c7d4;
+}
+span.the-field.yellow {
+    color: #fcc525;
+}
+```
