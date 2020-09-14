@@ -30,11 +30,10 @@
 
 如 
 ```php
-$table->show('name','姓名')->to('{val}#{mobile}')`;
+$table->show('name','姓名')->to('{val}#{mobile}')`;//{val}代表当前字段`name`值，{mobile}为这条记录中的`mobile`字段值。
+
 $table->raw('link','链接')->to('<a href="{val}">{val}</a>')`;//渲染html要用`raw`或`field`
 ```
-{val}代表当前字段`name`值，{mobile}为这条记录中的`mobile`字段值。
-
 >mapClassWhen() / mapClassWhenGroup 样式匹配  
 
 如 
