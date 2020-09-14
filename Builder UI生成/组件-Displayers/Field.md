@@ -26,8 +26,8 @@
 |mapClassWhen() | 样式匹配 ||
 |mapClassWhenGroup() | 样式组匹配 ||
 
->to  
-
+>to
+支持模板变量：{字段名}
 如 
 ```php
 $table->show('name','姓名')->to('{val}#{mobile}')`;//{val}代表当前字段`name`值，{mobile}为这条记录中的`mobile`字段值。
