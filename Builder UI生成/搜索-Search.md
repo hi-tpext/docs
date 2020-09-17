@@ -31,3 +31,12 @@
  * Fields         fields($name, $label = '', $colSize = 12, $filter = '')
  */
 ```
+###### field参数说明
+
+>$name 字段名称 必填
+
+>$label     显示label ，不填则取name值
+
+>$cloSize   col-md-大小，默认:2
+
+>$filter  搜索条件，默认 'eq'
