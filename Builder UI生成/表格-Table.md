@@ -35,6 +35,14 @@
  *
  */
 ```
+###### field参数说明
+
+>$name 字段名称 必填
+
+>$label     显示label ，不填则取name值
+
+>$cloSize   col-md-大小，暂无实际用处
+
 - 理论上支持全部`form`组件，但一般来说，使用`show`,`field`,`text`,`Checkbox`,`Radio`,`Select`,`Textarea`等基本够用了。
 - `show`和`field`纯显示，`text`,`Checkbox`等表单元素支持在表格行内修改并失去焦点自动提交【配合autoPost】。
 ###### 基本使用
