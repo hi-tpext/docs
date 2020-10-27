@@ -163,7 +163,7 @@ btnPostChecked($url, $label = '', $class = 'btn-secondary', $icon = 'mdi-checkbo
 //$ids = input('post.ids');
 
 //添加一个批量打开，自动附带多选框选中的id发送get请求到`$url`。
-btnPostChecked($url, $label = '', $class = 'btn-secondary', $icon = 'mdi-checkbox-marked-outline', $attr = '')
+btnopenChecked($url, $label = '', $class = 'btn-secondary', $icon = 'mdi-checkbox-marked-outline', $attr = '')
 
 //已选中多个id参数获取
 //$ids = input('get.ids');
