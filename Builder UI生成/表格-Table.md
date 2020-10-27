@@ -157,8 +157,16 @@ btnExports($items, $postUrl = '', $label = '导出', $class = 'btn-secondary', $
 //添加一个链接，打开$ulr
 btnLink($url, $label = '', $class = 'btn-secondary', $icon = 'mdi-checkbox-marked-outline', $attr = '')
 
-//添加一个批量操作，自动附带多选框选中的id只post到`$url`，`$confirm` 批量操作前是否显示确认提示框。
+//添加一个批量操作，自动附带多选框选中的id发送post请求到`$url`，`$confirm` 批量操作前是否显示确认提示框。
 btnPostChecked($url, $label = '', $class = 'btn-secondary', $icon = 'mdi-checkbox-marked-outline', $attr = '', $confirm = true)
+//已选中多个id参数获取
+//$ids = input('post.ids');
+
+//添加一个批量打开，自动附带多选框选中的id发送get请求到`$url`。
+btnPostChecked($url, $label = '', $class = 'btn-secondary', $icon = 'mdi-checkbox-marked-outline', $attr = '')
+
+//已选中多个id参数获取
+//$ids = input('get.ids');
 ```
 
 ********************
@@ -166,7 +174,7 @@ btnPostChecked($url, $label = '', $class = 'btn-secondary', $icon = 'mdi-checkbo
 
 >默认自动生成[编辑 / 删除] 即
 ```
-btnEdit / btnDelet
+btnEdit / btnDelete
 ```
 
 - 基本使用
