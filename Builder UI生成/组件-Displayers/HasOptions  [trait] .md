@@ -36,7 +36,7 @@ use \app\common\model\GenderType;
 
 ```php
 //指定text/key字段
-$form->select('gender','性别')->optionsData(GenderType::all(), 'name', 'key');
+$form->select('gender','性别')->optionsData(GenderType::select(), 'name', 'key');
 ```
 ```html
 <select name="gender">
@@ -48,7 +48,7 @@ $form->select('gender','性别')->optionsData(GenderType::all(), 'name', 'key');
 //指定text，主键id作为key:
 
 ```php
-$form->select('gender','性别')->optionsData(GenderType::all(), 'name');
+$form->select('gender','性别')->optionsData(GenderType::select(), 'name');
 ```
 ```html
 <select name="gender">
