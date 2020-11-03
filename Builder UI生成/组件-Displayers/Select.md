@@ -108,6 +108,7 @@ public function selectPageUser()
 {
     $q = input('q');
     $page = input('page/d');
+    $selected = input('selected');
 
     if ($selected) {
         $list = $this->dataModel->where('id', 'in', $selected)->order($sortOrder)->select();
