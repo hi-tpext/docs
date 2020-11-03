@@ -6,7 +6,7 @@
 相当于只读的`checkbox`。
 
 ```php
-$table->match('hobbies', '爱好')->options([
+$table->matches('hobbies', '爱好')->options([
     1 => '唱歌', 
     2 => '跳舞',
     3 => '爬山',
@@ -31,12 +31,12 @@ use \app\common\model\HobbyType;
 
 ```php
 //指定text字段
-$table->match('hobbies','爱好')->optionsData(HobbyType::all(), 'name')->value('1,3,4');//默认主键`id`作为key
+$table->matches('hobbies','爱好')->optionsData(HobbyType::all(), 'name')->value('1,3,4');//默认主键`id`作为key
 //输出 ：唱歌、爬山、游泳
 ```
 
 ```php
 //指定text/key字段
-$table->match('hobbies','爱好')->optionsData(HobbyType::all(), 'name', 'hoby')->value('dance,climb');
+$table->matches('hobbies','爱好')->optionsData(HobbyType::all(), 'name', 'hoby')->value('dance,climb');
 //输出 ：跳舞、爬山
 ```
