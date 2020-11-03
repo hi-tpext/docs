@@ -109,16 +109,21 @@ public function selectPageUser()
     $q = input('q');
     $page = input('page/d');
 
-    $page = $page < 1 ? 1 : $page;
-    $pagesize = 20;
+    if ($selected) {
+        $list = $this->dataModel->where('id', 'in', $selected)->order($sortOrder)->select();
+    } else {
+        $q = input('q', '');
+        $page = $page < 1 ? 1 : $page;
+        $pagesize = 20;
 
-    $where = [];
+        $where = [];
 
-    if ($q) {
-        $where[] = ['nickname|mobile|username', 'like', '%' . $q . '%'];
+        if ($q) {
+            $where[] = ['nickname|mobile|username', 'like', '%' . $q . '%'];
+        }
+
+        $list = $this->dataModel->where($where)->limit(($page - 1) * $pagesize, $pagesize)->select();
     }
-
-    $list = $this->dataModel->where($where)->order('nickname')->limit(($page - 1) * $pagesize, $pagesize)->select();
 
     $data = [];
 
