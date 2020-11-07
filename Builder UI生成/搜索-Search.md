@@ -41,17 +41,25 @@
 
 >$filter  搜索条件，默认 'eq'
 
-$search相当于一个$form,是$table的一部分。
+`$search`相当于一个`$form`,是$table的一部分。
 
 ```php
 
 $search = $table->getSearch();//获取一个搜索
 
-//页码顶部快速切换：tabLink。
+//页面顶部快速切换：tabLink。
 
 $search->tabLink('gender')->options([1 => '男', 2 => '女']);
 
 $search->hidden('gender');//用一个隐藏字段接收切换的值，字段的名称要和上面tabLink的一样。
 
 //$search->select('gender', '性别')->options([1 => '男', 2 => '女']);//或者用一个select或radio也行。
+
+//其他
+$search->text('kwd', '名称/spu', 3)->maxlength(20);
+
+$search->select('category_id', '分类', 3)->dataUrl(url('/admin/shopcategory/selectPage'), 'name');
+
+$search->select('brand_id', '品牌', 3)->dataUrl(url('/admin/shopbrand/selectPage'));
+
 ```
