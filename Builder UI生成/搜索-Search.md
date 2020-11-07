@@ -40,3 +40,7 @@
 >$cloSize   col-md-大小，默认:2
 
 >$filter  搜索条件，默认 'eq'
+
+$search相当于一个$form,是$table的一部分。
+
+`$search = $table->getSearch();`//获取一个搜索
