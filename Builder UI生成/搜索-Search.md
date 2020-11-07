@@ -43,4 +43,15 @@
 
 $search相当于一个$form,是$table的一部分。
 
-`$search = $table->getSearch();`//获取一个搜索
+```php
+
+$search = $table->getSearch();//获取一个搜索
+
+//页码顶部快速切换：tabLink。
+
+$search->tabLink('gender')->options([1 => '男', 2 => '女']);
+
+$search->hidden('gender');//用一个隐藏字段接收切换的值，字段的名称要和上面tabLink的一样。
+
+//$search->select('gender', '性别')->options([1 => '男', 2 => '女']);//或者用一个select或radio也行。
+```
