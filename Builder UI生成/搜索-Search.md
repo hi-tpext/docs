@@ -49,11 +49,11 @@ $search = $table->getSearch();//获取一个搜索
 
 //页面顶部快速切换：tabLink。
 
-$search->tabLink('gender')->options([1 => '男', 2 => '女']);
+$search->tabLink('is_onsasle')->options([1 => '已上架', 2 => '未上架']);
 
-$search->hidden('gender');//用一个隐藏字段接收切换的值，字段的名称要和上面tabLink的一样。
+$search->hidden('is_onsasle');//用一个隐藏字段接收切换的值，字段的名称要和上面tabLink的一样。
 
-//$search->select('gender', '性别')->options([1 => '男', 2 => '女']);//或者用一个select或radio也行。
+//$search->select('is_onsasle', '上架')->options([1 => '已上架', 2 => '未上架']);//或者用一个select或radio也行。
 
 //其他
 $search->text('kwd', '名称/spu', 3)->maxlength(20);
