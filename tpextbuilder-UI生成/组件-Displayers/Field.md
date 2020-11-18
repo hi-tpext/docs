@@ -24,7 +24,7 @@
 |value($val) | 设置值 ||
 |to($tpl) | 简单的转换 ||
 |mapClass() | 样式匹配 ||
-|mapClassGroup() | 样式组匹配 ||
+|mapClassGroup($GroupArr) | 样式组匹配 ||
 
 >to
 支持模板变量：{字段名}  
