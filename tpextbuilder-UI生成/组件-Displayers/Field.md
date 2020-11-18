@@ -42,8 +42,10 @@ $table->raw('link','链接')->to('<a href="{val}">{val}</a>')`;//渲染html要�
 如 
 ```php
 $table->match('open', '状态')->options(['0' => '关闭', '1' => '开启'])->mapClass(1, 'hidden');
-$table->match('pay_status', '支付状态')->options(['0' => '未支付', '1' => '已支付', '2' =>'已关闭'])->mapClassGroup([[1, 'success'], [2, 'danger']])
-`。
+
+$table->match('pay_status', '支付状态')
+    ->options(['0' => '未支付', '1' => '已支付', '2' =>'已关闭'])
+    ->mapClassGroup([[1, 'success'], [2, 'danger']]);
 ```
 css 样式：
 ```css
