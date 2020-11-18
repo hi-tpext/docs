@@ -14,7 +14,7 @@
 |addAttr($val) |添加field的属性 ||
 |addStyle($val) |  添加field的style ||
 |labelAttr($val) | 添加label的属性 ||
-|size($label, $elemetm) | 设置大小(label,field)|默认: 2, 8|
+|`size($label, $elemetm)` | 设置大小(label,field)|默认: 2, 8|
 |help($text) | 添加帮助信息 ||
 |readonly($val =true) | 只读 ||
 |disabled($val =true) | 禁用 ||
