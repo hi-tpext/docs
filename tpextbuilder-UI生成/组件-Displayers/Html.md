@@ -13,10 +13,10 @@ public function display($content = '', $vars = [], $config = []){}
 
 $form->html('tree', 'tree');//填充数据里面有`tree`这个字段
 
-$form->html('tree', 'tree')->vale($treeHtml);
+$form->html('tree', 'tree')->vale($treeHtml);//直接显示一段html
 
-$form->html('tree', 'tree')->fetch('tree',　['data' => $data]);
+$form->html('tree', 'tree')->fetch('tree',　['data' => $data]);//渲染模板
 
-$form->html('tree', 'tree')->display('<p>{$name}</p>',　['name' => '小明']);
+$form->html('tree', 'tree')->display('<p>{$name}</p>',　['name' => '小明']);//渲染带变量的字符串
 
 ```
