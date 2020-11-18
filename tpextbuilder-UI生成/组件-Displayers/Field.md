@@ -35,9 +35,9 @@ $table->show('name','姓名')->to('{val}#{mobile}')`;//{val}代表当前字段`n
 
 $table->raw('link','链接')->to('<a href="{val}">{val}</a>')`;//渲染html要用`raw`或`field`
 ```
-->mapClass($values, $class, $field = '', $logic = 'in_array') 样式匹配 
+`mapClass($values, $class, $field = '', $logic = 'in_array')` 样式匹配 
 
-->mapClassGroup([[$values1, $class1, $field1 = '', $logic1 = 'in_array'], [$values2, $class2, $field2 = '', $logic2 = 'in_array']]]) 批量样式匹配  
+`mapClassGroup([[$values1, $class1, $field1 = '', $logic1 = 'in_array'], [$values2, $class2, $field2 = '', $logic2 = 'in_array']]])` 批量样式匹配  
 
 如 
 ```php
