@@ -59,7 +59,7 @@ step
 ```
 ###### field参数说明
 
->$name 字段名称 必填 ,如 `goods_namer` 或 `category.name`(关联模型)
+>$name 字段名称 必填 ,如 `goods_name` 或 `category.name`(关联模型)
 
 >$label     显示label ，不填则取name值
 
