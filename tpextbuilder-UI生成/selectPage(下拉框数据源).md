@@ -19,7 +19,7 @@ class Member extends Controller
 ```
 ### 说明
 
-`selectTextField` 格式化显示的文本，单个字段直接用字段名，各字段名称用大括号包围;`{fieldname}`。
+`selectTextField` 格式化显示的文本，单个字段直接用字段名，多字段名称用大括号包围;`{fieldname}`。
 
 如上面的格式表示：会员id#昵称(手机号)：
 
