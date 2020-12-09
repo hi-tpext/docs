@@ -41,25 +41,33 @@
 
 >$filter  搜索条件，默认 'eq'
 
-`$search`相当于一个`$form`,是$table的一部分。
+
+`$search`相当于一个`$form`，是`$table`的一部分。
+
+protected function filterWhere()
+{
+     //根据提交数据返回搜索条件，此方法可以不手动重写，会自动生成搜索条件，没怎么测试过，所以还是推荐手写。
+}
 
 ```php
+protected function buildSearch()
+{
+    $search = $table->getSearch();//获取一个搜索
 
-$search = $table->getSearch();//获取一个搜索
+    //页面顶部快速切换：tabLink。
 
-//页面顶部快速切换：tabLink。
+    $search->tabLink('is_onsasle')->options([1 => '已上架', 2 => '未上架']);
 
-$search->tabLink('is_onsasle')->options([1 => '已上架', 2 => '未上架']);
+    $search->hidden('is_onsasle');//用一个隐藏字段接收切换的值，字段的名称要和上面tabLink的一样。
 
-$search->hidden('is_onsasle');//用一个隐藏字段接收切换的值，字段的名称要和上面tabLink的一样。
+    //$search->select('is_onsasle', '上架')->options([1 => '已上架', 2 => '未上架']);//或者用一个select或radio也行。
 
-//$search->select('is_onsasle', '上架')->options([1 => '已上架', 2 => '未上架']);//或者用一个select或radio也行。
+    //其他
+    $search->text('kwd', '名称/spu', 3)->maxlength(20);
 
-//其他
-$search->text('kwd', '名称/spu', 3)->maxlength(20);
+    $search->select('category_id', '分类', 3)->dataUrl(url('/admin/shopcategory/selectPage'), 'name');
 
-$search->select('category_id', '分类', 3)->dataUrl(url('/admin/shopcategory/selectPage'), 'name');
-
-$search->select('brand_id', '品牌', 3)->dataUrl(url('/admin/shopbrand/selectPage'));
+    $search->select('brand_id', '品牌', 3)->dataUrl(url('/admin/shopbrand/selectPage'));
+}
 
 ```
