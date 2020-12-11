@@ -67,7 +67,7 @@ $select->select('member_id', '会员')->dataUrl(url('/admin/member/selectPage'))
 指定`textField`、`idField`：
 
 ```php
-$select->select('mobile', '会员')->dataUrl(url('/admin/member/selectPage'),'{id}#{nickname}','mobile');
+$select->select('mobile', '会员手机')->dataUrl(url('/admin/member/selectPage'),'{id}#{nickname}','mobile');
 ```
 ```html
 <select>
