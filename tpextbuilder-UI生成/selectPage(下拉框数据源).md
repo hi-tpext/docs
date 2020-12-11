@@ -80,14 +80,15 @@ $select->select('mobile', '会员手机')->dataUrl(url('/admin/member/selectPage
 ```
 
 `textField`是单个字段，大括号`{}`省略
+`idField` 未指定，用默认
 
 ```php
-$select->select('mobile', '会员手机')->dataUrl(url('/admin/member/selectPage'),'nickname','mobile'); 
+$select->select('mobile', '会员手机')->dataUrl(url('/admin/member/selectPage'),'nickname'); 
 ```
 ```html
 <select>
-<option value="13312345670">小明</option>
-<option value="13312345671">小红</option>
-<option value="13312345672">小刚</option>
+<option value="10001">小明</option>
+<option value="10003">小红</option>
+<option value="10003">小刚</option>
 <select>
 ```
