@@ -1,4 +1,5 @@
 - `HasBuilder`封装了增、删、查、改等所有动作
+
 - 也可按需分别引入`tpext\builder\traits\actions\`命名空间下的相应动作。
 
 ```php
@@ -7,8 +8,10 @@ use tpext\builder\traits\actions;
 
 class Admin extends Controller
 {
+    //方式1.完整引入，引入全部[增删查改]等动作。
     //use HasBuilder;
 
+    //方式2.按需引入
     //基础
     use actions\HasBase;
     //按需加载，避免暴露不必要的action
