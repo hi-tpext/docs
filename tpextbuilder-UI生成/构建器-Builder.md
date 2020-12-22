@@ -18,9 +18,6 @@ table($size = 12);
 //获取一个工具栏
 toolbar($size = 12);
 
-//获取一个表单
-tree($size = 12);
-
 //默认获取一个ZTree树
 tree($size = 12);
 
