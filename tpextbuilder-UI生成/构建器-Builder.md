@@ -9,6 +9,12 @@
 //$title：页面标题,$desc：页面描述
 getInstance($title = '', $desc = '');
 
+//获取一个row
+row();
+
+//获取一个column
+column($size = 12);
+
 //获取一个表单
 form($size = 12);
 
