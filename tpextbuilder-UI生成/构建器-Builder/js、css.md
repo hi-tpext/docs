@@ -7,7 +7,7 @@ $builder->customJs('/static/admin/js/my.js');
 //在当前页面引入一个css文件
 customCss($cssfile);
 //如：
-$builder->customJs('/static/admin/css/my.css');
+$builder->customCss('/static/admin/css/my.css');
 
 //在当前页面添加一段js脚本 
 addScript($script);
