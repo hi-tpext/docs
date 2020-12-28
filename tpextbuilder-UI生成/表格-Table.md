@@ -243,8 +243,12 @@ btnLink($name = '', $url, $label = '', $class = 'btn-secondary', $icon = '', $at
 ```
 
 - `url('demo', ['id' => '__data.pk__']);`
+
 - `相当于 url('demo', ['id'=>'__data.id__']);`
--其他参数：`url('demo', ['id' => '__data.id__', 'type' => '__data.type__', 'status' => 1]);`
+
+- 其他参数：`__data.字段名__`
+
+  如：url('demo', ['id' => '__data.id__', 'type' => '__data.type__', 'status' => 1]);`
 ```php
 //添加一个操作，自动附带当前列id参数post到`$postUrl`，`$confirm` 操作前是否显示确认提示框。
 btnPostRowid($name = '', $postUrl, $label = '', $class = 'btn-secondary', $icon = 'mdi-checkbox-marked-outline', $attr = '', $confirm = true)
@@ -253,11 +257,26 @@ btnPostRowid($name = '', $postUrl, $label = '', $class = 'btn-secondary', $icon 
 >控制action的显示禁用
 
 ```php
-->mapClass([
-            'delete' => ['hidden' => '__h_del__'],
-            'enable' => ['hidden' => '__h_en__'],
-            'disable' => ['hidden' => '__h_dis__'],
-  　　　　]);
+$table->getActionbar()
+    ->btnEdit()
+    ->btnEnableAndDisable()
+    ->btnView()
+    ->btnDelete()
+    ->mapClass([
+        'delete' => ['hidden' => '__h_del__'],
+        'enable' => ['hidden' => '__h_en__'],
+        'disable' => ['hidden' => '__h_dis__'],
+        //
+        //'enable' => ['hidden' => [1, 'enable']],//也可以像这样，就不用去循环数组设置
+        //'disable' => ['hidden' => [0, 'enable']],
+    ]);
+//循环数组去设置
+foreach ($data as &$d) {
+    $d['__h_del__'] = $d['id'] == 1;
+    $d['__h_en__'] = $d['enable'] == 1;
+    $d['__h_dis__'] = $d['enable'] != 1 || $d['id'] == 1;
+}
+unset($d);
 ```
 
 - `delete|enable|disable`按钮名称，如果是自定义[btnLink/btnPostRowid]则为传入的`$name`.
