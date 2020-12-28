@@ -71,5 +71,5 @@ $form->select('member_id','会员')->dataUrl(url('/admin/member/selectPage')); /
 ```php
 $table->match('type_id','类型')->optionsData(Type::select(), 'name', 'id');//Type表数据较少，可以使用
 //$table->match('member_id','会员')->optionsData(Member::select(), 'nicknname', 'id');//不推荐
-$table->show('member.nickname','会员')->dataUrl(url('/admin/member/selectPage')); //推荐，关联模型
+$table->show('member.nickname','会员'); //推荐，关联模型
 ```
