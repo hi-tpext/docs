@@ -58,16 +58,18 @@ $form->select('gender','性别')->optionsData(GenderType::select(), 'name');
 </select>
 ```
 
-注意：optionsData的驱动表尽量是数据较少的表，对于数据较多的表应使用其他替代方法。
+注意：`optionsData`的驱动表尽量结果集较少的表，对于数据较多的表应使用其他替代方法。
 
 如表单中：
 ```php
-//$form->select('member_id','会员')->optionsData(Member::select(), 'nicknname', 'id');//不推荐
+$form->select('type_id','类型')->optionsData(Type::select(), 'name', 'id');//Type表数据较少，可以使用
+//$form->select('member_id','会员')->optionsData(Member::select(), 'nicknname', 'id');//不推荐，会员数量很多，全部查询出来不划算
 $form->select('member_id','会员')->dataUrl(url('/admin/member/selectPage')); //推荐，使用ajax加载
 ```
 
 如表格中：
 ```php
+$table->match('type_id','类型')->optionsData(Type::select(), 'name', 'id');//Type表数据较少，可以使用
 //$table->match('member_id','会员')->optionsData(Member::select(), 'nicknname', 'id');//不推荐
 $table->show('member.nickname','会员')->dataUrl(url('/admin/member/selectPage')); //推荐，关联模型
 ```
