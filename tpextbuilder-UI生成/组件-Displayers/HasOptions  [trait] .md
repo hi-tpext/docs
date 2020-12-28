@@ -57,3 +57,17 @@ $form->select('gender','性别')->optionsData(GenderType::select(), 'name');
 <option vlaue="3">未知</option>
 </select>
 ```
+
+注意：optionsData的驱动表尽量是数据较少的表，对于数据较多的表应使用其他替代方法。
+
+如表单中：
+```php
+//$form->select('member_id','会员')->optionsData(Member::select(), 'nicknname', 'id');//不推荐
+$form->select('member_id','会员')->dataUrl(url('/admin/member/selectPage')); //推荐，使用ajax加载
+```
+
+如表格中：
+```php
+//$table->match('member_id','会员')->optionsData(Member::select(), 'nicknname', 'id');//不推荐
+$table->show('member.nickname','会员')->dataUrl(url('/admin/member/selectPage')); //推荐，关联模型
+```
