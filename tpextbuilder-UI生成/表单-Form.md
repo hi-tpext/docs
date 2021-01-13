@@ -103,14 +103,14 @@ $form->btnBack('返&nbsp;&nbsp;回');
 1. 使用`fields`:
 ```php
 //第一组：
-$form->fields('1', '', 4)->showLabel(false)->size(0, 12);
+$form->fields('1', '', 6)->showLabel(false)->size(0, 12);
 $form->text('nickname', '姓名');
 $form->text('mobile', '手机号')->maxlength(11);
 $form->select('department_id', '部门')->options($departList);
 $form->fieldsEnd();
 
 //第二组：
-$form->fields('1', '', 4)->showLabel(false)->size(0, 12);
+$form->fields('1', '', 6)->showLabel(false)->size(0, 12);
 $form->image('avatar', '照片');
 $form->text('school', '学校');
 $form->select('nation', '民族')->options($nationList);
