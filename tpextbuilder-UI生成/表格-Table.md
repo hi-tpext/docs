@@ -154,7 +154,7 @@ btnPostChecked($url, $label = '', $class = 'btn-secondary', $icon = 'mdi-checkbo
 //已选中多个id参数获取
 //$ids = input('post.ids');
 
-//添加一个批量打开，自动附带多选框选中的id发送get请求到`$url`。
+//添加一个批量打开，自动附带多选框选中的id发送get请求到`$url`。一般用于批量分配，移动等功能。
 btnOpenChecked($url, $label = '', $class = 'btn-secondary', $icon = 'mdi-checkbox-marked-outline', $attr = '')
 
 //已选中多个id参数获取
@@ -260,7 +260,7 @@ $table->getActionbar()
         'disable' => ['hidden' => '__h_dis__'],
         //
         //'enable' => ['hidden' => [1, 'enable']],//也可以像这样，就不用去循环数组设置
-        //'disable' => ['hidden' => [0, 'enable']],
+        //'disable' => ['hidden' => [[0,2], 'enable']],
     ]);
 //循环数组去设置
 foreach ($data as &$d) {
