@@ -45,7 +45,7 @@
 ###### form常用方法
 ```php
 //设置字段元素的默认大小，后面创建的元素就不必一个一个去设置大小了。
-$search->defaultDisplayerSize(2, 6);
+$search->defaultDisplayerSize(4, 8);
 
 //设置字段元素默认`col-md`大小
 $search->defaultDisplayerColSize(2);
