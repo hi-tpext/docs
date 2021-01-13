@@ -42,7 +42,7 @@
 >$filter  搜索条件，默认 'eq'
 
 ```
-###### form常用方法
+###### search常用方法
 ```php
 //设置字段元素的默认大小，后面创建的元素就不必一个一个去设置大小了。
 $search->defaultDisplayerSize(4, 8);
