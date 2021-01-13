@@ -52,7 +52,9 @@ protected function filterWhere()
 ```php
 protected function buildSearch()
 {
-    $search = $table->getSearch();//获取一个搜索
+    //$search = $table->getSearch();//获取一个搜索
+
+    $search = $this->search;
 
     //页面顶部快速切换：tabLink。
 
