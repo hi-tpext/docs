@@ -70,15 +70,7 @@
 
 ###### 支持部分的form组件行内编辑：
 
->text,
-
->textarea
-
->radio
-
->select
-
->checkbox
+`text`,`textarea`,`radio`,`select`,`checkbox`
 
 *** 行内编辑续配合 `autoPost($url)`方法使用，`url`参数不传则默认请求到同一个控制器的`autoPost`action
 
