@@ -262,6 +262,9 @@ $table->getActionbar()
         //'enable' => ['hidden' => [1, 'enable']],//,当这行数据的`enable`字段值为`1`时，`enable`这个按钮加上`hidden`的class
         //'disable' => ['hidden' => [[0,2], 'enable']],//当这行数据的`enable`字段值为`0`或`2`时，`disable`这个按钮加上`hidden`的class
         //'disable' => ['hidden' => [2, 'enable', '>']],//当这行数据的`enable`字段值大于`2`时，`disable`这个按钮加上`hidden`的class
+        // 更多逻辑 : in_array|not_in_array|eq|gt|lt|egt|elt|strstr|not_strstr
+        // eq|gt|lt|egt|elt 等价于 =|>|<|>=|<=
+        // !in_array 等价于not_in_array,!strstr等价于not_strstr
     ]);
 //循环数组去设置
 foreach ($data as &$d) {
