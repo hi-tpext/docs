@@ -258,9 +258,10 @@ $table->getActionbar()
         'delete' => ['hidden' => '__h_del__'],//当这行数据的`__h_del__`字段值为真(1或true)时，`enable`这个按钮加上`hidden`的class
         'enable' => ['hidden' => '__h_en__'],
         'disable' => ['hidden' => '__h_dis__'],
-        //
-        //'enable' => ['hidden' => [1, 'enable']],//也可以像这样，就不用去循环数组设置,当这行数据的`enable`字段值为`1`时，`enable`这个按钮加上`hidden`的class
+        //也可以像下面这样,就不用去循环数组设置。
+        //'enable' => ['hidden' => [1, 'enable']],//,当这行数据的`enable`字段值为`1`时，`enable`这个按钮加上`hidden`的class
         //'disable' => ['hidden' => [[0,2], 'enable']],//当这行数据的`enable`字段值为`0`或`2`时，`disable`这个按钮加上`hidden`的class
+        //'disable' => ['hidden' => [2, 'enable', '>']],//当这行数据的`enable`字段值大于`2`时，`disable`这个按钮加上`hidden`的class
     ]);
 //循环数组去设置
 foreach ($data as &$d) {
