@@ -96,3 +96,36 @@ $form->btnSubmit('提&nbsp;&nbsp;交');
 $form->btnReset('重&nbsp;&nbsp;置');
 $form->btnBack('返&nbsp;&nbsp;回');
 ```
+
+分组布局
+建议使用`fields`分组，基于`clo-size`的分组布局不易控制，互相影响。
+假如要分成左右两列：
+1. 使用`fields`:
+```php
+//第一组：
+$form->fields('1', '', 4)->showLabel(false)->size(0, 12);
+$form->text('nickname', '姓名');
+$form->text('mobile', '手机号')->maxlength(11);
+$form->select('department_id', '部门')->options($departList);
+$form->fieldsEnd();
+
+//第二组：
+$form->fields('1', '', 4)->showLabel(false)->size(0, 12);
+$form->image('avatar', '照片');
+$form->text('school', '学校');
+$form->select('nation', '民族')->options($nationList);
+$form->fieldsEnd();
+```
+
+2. 使用`col`分:
+```php
+$form->defaultDisplayerColSize(6);//设置默认col大小col-md-6，自动分为左右两列。
+
+$form->text('nickname', '姓名');
+$form->text('mobile', '手机号')->maxlength(11);
+$form->select('department_id', '部门')->options($departList);
+$form->image('avatar', '照片');//图片高度与其他的不同，容易影响布局
+$form->text('school', '学校');
+$form->select('nation', '民族')->options($nationList);
+
+```
