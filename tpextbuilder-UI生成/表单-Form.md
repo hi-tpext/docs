@@ -70,6 +70,9 @@ step
 //设置字段元素的默认大小，后面创建的元素就不必一个一个去设置大小了。
 $form->defaultDisplayerSize(2, 6);
 
+//设置字段元素默认`col-md`大小
+$form->defaultDisplayerColSize(12);
+
 //只读，表单里面所有元素只读
 $form->readonly(true);
 
