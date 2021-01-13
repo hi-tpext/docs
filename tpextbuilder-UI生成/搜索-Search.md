@@ -41,6 +41,16 @@
 
 >$filter  搜索条件，默认 'eq'
 
+```
+###### form常用方法
+```php
+//设置字段元素的默认大小，后面创建的元素就不必一个一个去设置大小了。
+$search->defaultDisplayerSize(2, 6);
+
+//设置字段元素默认`col-md`大小
+$search->defaultDisplayerColSize(2);
+```
+
 
 `$search`相当于一个`$form`，是`$table`的一部分。
 
