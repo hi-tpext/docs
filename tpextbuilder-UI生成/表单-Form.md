@@ -117,7 +117,7 @@ $form->select('nation', '民族')->options($nationList);
 $form->fieldsEnd();
 ```
 
-2. 使用`col`分:
+2. 基于`co-sizel`分:
 ```php
 $form->defaultDisplayerColSize(6);//设置默认col大小col-md-6，自动分为左右两列。
 
