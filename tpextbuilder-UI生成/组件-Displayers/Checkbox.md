@@ -8,5 +8,8 @@ public function inline($val = true)
 
 //【全选】按钮文字，若传入空字符串，则不显示此按钮
 public function checkallBtn($val = '全选')
+
+//以块状显示，一种美化
+public function blockStyle($val = true)
 ```
 `HasOptions`　trait 为`Checkbox` `Radio` `Select` `MultipleSelect` `Match` `Matches` 共有。
