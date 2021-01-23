@@ -12,4 +12,5 @@ public function checkallBtn($val = '全选')
 //以块状显示，一种美化
 public function blockStyle($val = true)
 ```
+
 `HasOptions`　trait 为`Checkbox` `Radio` `Select` `MultipleSelect` `Match` `Matches` 共有。
