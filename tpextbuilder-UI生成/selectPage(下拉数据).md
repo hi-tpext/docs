@@ -92,7 +92,8 @@ $select->select('mobile', '会员手机')->dataUrl(url('/admin/member/selectPage
 <option value="10003">小刚</option>
 <select>
 ```
-模型关联
+### 模型关联
+
 //用户模型：Member
 
 ```php
