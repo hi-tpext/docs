@@ -102,7 +102,7 @@ class Member extends Model
     /** **/
     public function level()
     {
-        return $this->belongsTo(UserLevel::class, 'level_id', 'id');
+        return $this->belongsTo(MelberLevel::class, 'level_id', 'id');//MelberLevel是用户等级的模型类
     }
 }
 
