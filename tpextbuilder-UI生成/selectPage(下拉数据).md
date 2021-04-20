@@ -92,3 +92,50 @@ $select->select('mobile', '会员手机')->dataUrl(url('/admin/member/selectPage
 <option value="10003">小刚</option>
 <select>
 ```
+模型关联
+//用户模型：Member
+
+```php
+class Member extends Model
+{
+    /** **/
+    public function level()
+    {
+        return $this->belongsTo(UserLevel::class, 'level_id', 'id');
+    }
+}
+
+```
+//控制器
+```php
+class Member extends Controller
+{
+    protected function initialize()
+    {
+        //...其他初始化
+        
+        $this->selectTextField = '{id}#{nickname}({level.name})';
+        $this->selectSearch = 'nickname|mobile';
+        
+        $this->selectIdField ='id';
+        $this->selectFields ='id,nickname,mobile,level_id';//   `level_id`这个字段是必须的
+        $this->selectOrder = 'nickname';
+        $this->selectScope = [['enable', 'eq' ,1]];
+
+        $this->selectWith= ['level'];//关联模型
+    }
+}
+
+```
+
+```php
+$select->select('member_id', '会员')->dataUrl(url('/admin/member/selectPage'));
+```
+
+```html
+<select>
+<option value="10001">10001#小明(一年级)</option>
+<option value="10002">10002#小刚(二年级)</option>
+<option value="10003">10003#小红(三年级)</option>
+<select>
+```
