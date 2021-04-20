@@ -118,7 +118,7 @@ class Member extends Controller
         $this->selectSearch = 'nickname|mobile';
         
         $this->selectIdField ='id';
-        $this->selectFields ='id,nickname,mobile,level_id';//   `level_id`这个字段是必须的
+        $this->selectFields ='id,nickname,level_id';//   `level_id`这个字段是必须的
         $this->selectOrder = 'nickname';
         $this->selectScope = [['enable', 'eq' ,1]];
 
