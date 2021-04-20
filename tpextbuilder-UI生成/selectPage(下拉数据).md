@@ -1,4 +1,4 @@
-默认每一个有列表页`index`的控制器都对应一个`selectPage`，`url('/admin/controller/selectPage')`;
+默认每一个有列表页`index`的控制器都对应一个`selectPage`，`url('/admin/{controller}/selectPage')`;
 
 ```php
 class Member extends Controller
