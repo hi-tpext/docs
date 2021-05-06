@@ -283,10 +283,10 @@ unset($d);
 'enable' => ['disabled' => '__dis_en__'],
 ```
 
-### addTop / addBottom ,顶部或底部内容
+## addTop / addBottom ,顶部或底部内容
 
 ```php
-$table->addTop->content()->fetch('demo');
+$table->addTop()->content()->fetch('demo');
 
-$table->addBottom->content()->display('{name}', ['name' => 'jim']);
+$table->addBottom()->content()->display('{name}', ['name' => 'jim']);
 ```
