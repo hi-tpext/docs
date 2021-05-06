@@ -13,7 +13,7 @@ public function checkallBtn($val = '全选')
 public function blockStyle($val = true)
 ```
 
-`HasOptions`　trait 为`Checkbox` `Radio` `Select` `MultipleSelect` `Match` `Matches` 共有。
+`HasOptions`　trait 为`Checkbox` `Radio` `Select` `DualListbox` `MultipleSelect` `Match` `Matches` 共有。
 
 ### 颜色主题
 `$form->checkbox('attr', '属性')->class('checkbox-warning')->blockStyle()->checkallBtn()->options(['is_recommend' => '推荐', 'is_hot' => '热门', 'is_top' => '置顶'])`
