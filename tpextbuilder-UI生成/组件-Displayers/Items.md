@@ -28,7 +28,52 @@ public function canNotAddOrDelete(){}
 //[5 => ['id'=>5, 'name' => '小刚'], 6 => ['id'=>6, 'name' => '小芳']]
 public function dataWithId($data, $idField = 'id', $overWrite = false)
 ```
-### 主要用法
+
+#### with用法
+
+有4种写法:
+- 1 使用with可变参数(fields);
+```php
+$form->items('', '产品属性')->dataWithId($attrList)->with(
+    $form->show('action_note', '操作备注'),
+    $form->show('status_desc', '描述')
+    //其他组件以,分割
+);
+```
+
+- 2 使用with包含数组中的fields;
+```php
+$form->items('', '产品属性')->dataWithId($attrList)->with([
+    $form->show('action_note', '操作备注'),
+    $form->show('status_desc', '描述')
+    //其他组件以,分割
+ ]
+);
+```
+
+- 3 使用with匿名方法(function(){});
+```php
+$form->items('', '产品属性')->dataWithId($attrList)->with(
+    function() use($from){
+        $form->show('action_note', '操作备注');
+        $form->show('status_desc', '描述');
+        //其他组件以
+    }
+);
+```
+
+- 4 使用itemsEnd;
+```php
+$form->items('', '产品属性')->dataWithId($attrList);
+//写包含的组件
+$form->show('action_note', '操作备注');
+$form->show('status_desc', '描述');
+//其他组件
+
+$form->itemsEnd();//结束
+```
+
+### 主要功能
 
 - 1 数据录入
 ```php
