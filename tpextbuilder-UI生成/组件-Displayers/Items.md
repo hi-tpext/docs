@@ -45,7 +45,7 @@ $form->items('', '产品属性')->dataWithId($attrList)->with(
 ```php
 $form->items('', '产品属性')->dataWithId($attrList)->with([
     $form->show('action_note', '操作备注'),
-    $form->show('status_desc', '描述')
+    $form->show('status_desc', '描述'),
     //其他组件以,分割
  ]
 );
