@@ -15,7 +15,7 @@ public function fill($data = [], $overWrite = false){}
 
 #### 用法
 
-有两种写法:
+有4种写法:
 - 1 使用with可变参数(fields);
 ```php
 $form->fields('', '基本信息', 7)->with(
@@ -24,6 +24,7 @@ $form->fields('', '基本信息', 7)->with(
     //其他组件以,分割
 );
 ```
+
 - 2 使用with包含数组中的fields;
 ```php
 $form->fields('', '基本信息', 7)->with([
@@ -40,8 +41,8 @@ $form->fields('', '基本信息', 7)->with(
     function() use($from){
         $form->text('name', '名称')->required()->maxlength(55);
         $form->text('spu', 'spu码')->maxlength(100;
+        //其他组件以
     }
-    //其他组件以,分割
 );
 ```
 
