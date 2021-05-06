@@ -15,7 +15,7 @@ public function timespan($val = 'Y-m-d'){}
 $form->date('date', '日期')->format('YYYY-MM');
 ```
 
-只选择到月份，号数为1号：
+只选择到月份，号数固定为1号：
 ```php
 $form->date('date', '日期')->format('YYYY-MM-01');
 ```
