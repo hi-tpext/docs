@@ -83,3 +83,10 @@ protected function buildSearch()
 }
 
 ```
+
+## addTop / addBottom ,顶部或底部内容
+
+```php
+$search->addTop()->content()->fetch('demo');
+
+$search->addBottom()->content()->display('{name}', ['name' => 'jim']);
