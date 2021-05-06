@@ -12,10 +12,10 @@ public function timespan($val = 'Y-m-d'){}
 
 只选择到月份：
 ```php
-$rorm->date('date', '日期')->format('YYYY-MM');
+$form->date('date', '日期')->format('YYYY-MM');
 ```
 
 只选择到月份，号数为1号：
 ```php
-$rorm->date('date', '日期')->format('YYYY-MM-01');
+$form->date('date', '日期')->format('YYYY-MM-01');
 ```
