@@ -11,7 +11,7 @@ public function inline($val = true)
 public function blockStyle($val = true)
 ```
 
-`HasOptions`　trait 为`Checkbox` `Radio` `Select` `MultipleSelect` `Match` `Matches` 共有。
+`HasOptions`　trait 为`Checkbox` `Radio` `Select` `DualListbox` `MultipleSelect` `Match` `Matches` 共有。
 
 ### 颜色主题
 `$form->radio('on_sale', '上架')->class('radio-warning')->blockStyle()->options([1 => '已上架', 0 => '未上架'])->default(0);`
