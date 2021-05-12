@@ -20,7 +20,7 @@
 
 `with(function($form){$field1;$field2;$field3;$fieldN;});`
 
-以下代码可正常运行，其中仅使用了`tab`和`fields`，`step`和`items`类似。
+以下代码可正常运行，其中仅使用了`tab`、`fields`，`step`、`items`也类似。
 
 ```php
         $form->tab('tab1')->with(
