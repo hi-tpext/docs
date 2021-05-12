@@ -14,7 +14,7 @@
 
 2. 作为数组元素
 
-`with([$field1, $field2, $field3, $fieldN]);`
+`with([$field1, $field2, $field3, $fieldN, ]);`
 
 3. 作为匿名方法种的语句
 
