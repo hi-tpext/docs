@@ -10,15 +10,15 @@
 
 1. 作为可变参数：
 
-with($field1, $field2, $field3, $fieldN, );
+`with($field1, $field2, $field3, $fieldN, );`
 
 2. 作为数组元素
 
-with([$field1, $field2, $field3, $fieldN]);
+`with([$field1, $field2, $field3, $fieldN]);`
 
 3. 作为匿名方法种的语句
 
-with(function($form){$field1;$field2;$field3;$fieldN;});
+`with(function($form){$field1;$field2;$field3;$fieldN;});`
 
 以下代码可正常运行，其中仅使用了`tab`和`fields`，`step`和`items`类似。
 
