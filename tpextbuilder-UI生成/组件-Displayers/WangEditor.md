@@ -1,4 +1,4 @@
-WangEditor富文本编辑器
+# WangEditor富文本编辑器
 
 已内置 wangEditor 资源
 

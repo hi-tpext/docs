@@ -1,10 +1,17 @@
-所有`displayer`的基类。
+# Field
+
+## 所有`displayer`的基类
 
 直接输出value(支持html)，一般不直接使用。
 
+```html
+{$value|raw}
+```
+
 `form`中使用：无`label`, 不支持`col-md-n`大小控制。
 
-##### 主要通用方法
+### 主要通用方法
+
 |  方法    |  说明    |  备注  |
 | :-- | :-- | :-- |
 |`class($val)`|设置field的class||
@@ -29,17 +36,20 @@
 >to
 支持模板变量：{字段名}  {val}
 
-如 
+如
+
 ```php
 $table->show('name','姓名')->to('{val}#{mobile}')`;//{val}代表当前字段`name`值，{mobile}为这条记录中的`mobile`字段值。
 
 $table->raw('link','链接')->to('<a href="{val}">{val}</a>')`;//渲染html要用`raw`或`field`
 ```
-`mapClass($values, $class, $field = '', $logic = 'in_array')` 样式匹配 
+
+`mapClass($values, $class, $field = '', $logic = 'in_array')` 样式匹配
 
 `mapClassGroup([[$values1, $class1, $field1 = '', $logic1 = 'in_array'], [$values2, $class2, $field2 = '', $logic2 = 'in_array']]])` 批量样式匹配  
 
-如 
+如
+
 ```php
 $table->match('open', '状态')->options(['0' => '关闭', '1' => '开启'])->mapClass(1, 'hidden');
 
@@ -47,7 +57,9 @@ $table->match('pay_status', '支付状态')
     ->options(['0' => '未支付', '1' => '已支付', '2' =>'已关闭'])
     ->mapClassGroup([[1, 'success'], [2, 'danger']]);
 ```
+
 css 样式：
+
 ```css
 span.the-field.default {
     color: #8b95a5;

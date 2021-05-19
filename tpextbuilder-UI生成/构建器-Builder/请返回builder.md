@@ -1,5 +1,7 @@
+# builder
 
 大多数情况，请返回`$builder->render()`或`$builder`.
+
 ```php
 $builder = $this->builder('出错了');
 //错误，返回的是一个`content`，只渲染了部分内容，js、css等资源都没有。不算绝对错误，但可能与想象不符。

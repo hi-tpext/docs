@@ -1,4 +1,4 @@
-显示内容
+# 显示内容
 
 跟`Raw`差不多，区别是`Raw`可以显示html,`show`会转义html。
 
@@ -12,22 +12,21 @@ public function cut($len = 0, $more = '...'){}
 public function inline($val){}
 ```
 
-`table`中使用`fiel`和实用`show`效果差不多。
+`form`中使用`field`和实用`show`效果差不多。
 
-`table`中使用`fields`里面使用`show`和`field`有略微差别。`show`有div包裹着，是块级元素，`field`是行内元素。
-
+`table`中使用`fields`里面使用`show`和`field`有略微差别。`show`有[div]包裹着，每个字段占一行，是块级元素，`field`无[div]包裹，多个字段合并占一行。
 
 ```php
 $table->fields('consignee', '收货人/电话')->with(
       $table->show('consignee', '收货人'),
       $table->show('mobile', '电话')->default('--')
 );
-        
 ```
+
 显示：
 |  收货人/电话   |
 |  :----:  |
-| 小明<br>13612345678  | 
+| 小明<br>13612345678  |
 
 ```php
 $table->fields('consignee', '收货人/电话')->with(
@@ -35,9 +34,10 @@ $table->fields('consignee', '收货人/电话')->with(
      $table->field('mobile', '电话')->default('--')
 );
 ```
+
 显示：
 |  收货人/电话   |
 |  :----:  |
-| 小明13612345678  | 
+| 小明13612345678  |
 
 新版本中为`show`新加了个方法`inline()`，table中使用`inline`的`show`和`field`表现一样,要说区别，就是使用`field`可少敲几次键盘。

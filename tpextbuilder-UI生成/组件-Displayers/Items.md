@@ -1,8 +1,11 @@
-数据条目　　
+# Items
+
+## 数据条目　　
 
 一般用于一对多的数据录入。
 
 主要方法：
+
 ```php
 //包含多个组件
 public function with(...$fields){}
@@ -29,10 +32,12 @@ public function canNotAddOrDelete(){}
 public function dataWithId($data, $idField = 'id', $overWrite = false)
 ```
 
-#### with用法
+### with用法
 
 有4种写法:
-- 1 使用with可变参数(fields);
+
+- 1. 使用with可变参数(fields);
+
 ```php
 $form->items('', '产品属性')->dataWithId($attrList)->with(
     $form->show('action_note', '操作备注'),
@@ -41,7 +46,8 @@ $form->items('', '产品属性')->dataWithId($attrList)->with(
 );
 ```
 
-- 2 使用with包含数组中的fields;
+- 2. 使用with包含数组中的fields;
+
 ```php
 $form->items('', '产品属性')->dataWithId($attrList)->with([
     $form->show('action_note', '操作备注'),
@@ -51,7 +57,8 @@ $form->items('', '产品属性')->dataWithId($attrList)->with([
 );
 ```
 
-- 3 使用with匿名方法(function(){});
+- 3. [版本>=1.9.0010]使用with匿名方法(function(){});
+
 ```php
 $form->items('', '产品属性')->dataWithId($attrList)->with(
     function() use($from){
@@ -60,9 +67,18 @@ $form->items('', '产品属性')->dataWithId($attrList)->with(
         //其他组件以
     }
 );
+//或者
+$form->items('', '产品属性')->dataWithId($attrList)->with(
+    function(\tpext\builder\common\Form $from){
+        $form->show('action_note', '操作备注');
+        $form->show('status_desc', '描述');
+        //其他组件以
+    }
+);
 ```
 
-- 4 使用itemsEnd;
+- 4. 使用[fieldsEnd]收尾;
+
 ```php
 $form->items('', '产品属性')->dataWithId($attrList);
 //写包含的组件
@@ -75,7 +91,8 @@ $form->itemsEnd();//结束
 
 ### 主要功能
 
-- 1 数据录入
+- 1. 数据录入
+
 ```php
 $attrList = $isEdit ? ShopGoodsAttr::where(['goods_id' => $data['id']])->order('sort')->select() : [];
 
@@ -86,7 +103,8 @@ $form->items('attr_list', '产品属性')->dataWithId($attrList)->with(
 )->help('【属性】不影响价格，仅展示');
 ```
 
-- 2 数据展示，针对数据量比较少的情况，比如在订单详情页显示订单日志，日志数量一般不会太多，把相关日志一次性显示为列表。
+- 2. 数据展示，针对数据量比较少的情况，比如在订单详情页显示订单日志，日志数量一般不会太多，把相关日志一次性显示为列表。
+
 ```php
 $logList = model\ShopOrderAction::where(['order_id' => $data['id']])->order('id desc')->select();
 
@@ -98,4 +116,19 @@ $form->items('log_list', '操作日志')->dataWithId($logList)->with(
      $form->match('shipping_status', '物流状态')->options(OrderModel::$shipping_status_types),
      $form->show('create_time', '时间')
 )->canNotAddOrDelete();
+
+```
+
+也可使用针对[items]个语法糖：`logs`。
+
+```php
+$form->logs('log_list', $logList, function () use ($form) {
+    $form->show('action_note', '操作备注');
+    $form->show('status_desc', '描述');
+    $form->match('order_status', '订单状态')->options(OrderModel::$order_status_types);
+    $form->match('pay_status', '支付状态')->options(OrderModel::$pay_status_types);
+    $form->match('shipping_status', '物流状态')->options(OrderModel::$shipping_status_types);
+    $form->show('create_time', '时间2');
+});
+
 ```

@@ -1,4 +1,7 @@
+# HasOptions
+
 `HasOptions`　trait 为`Checkbox` `Radio` `Select` `MultipleSelect` `DualListbox` `Match` `Matches` 共有。
+
 ```php
 //选项,传入数组　如 [1=>'男',　2=>'女'];
 public function options($options){}
@@ -20,7 +23,8 @@ public function afterOptions($options){}
 //与现有选项合并，会重排数组键
 public function mergeOptions($options){}
 ```
-optionsData使用说明：　　
+
+## optionsData使用说明
 
 数据库表: tp_gender_type ,模型　\app\common\model\GenderType;
 
@@ -38,6 +42,7 @@ use \app\common\model\GenderType;
 //指定text/key字段
 $form->select('gender','性别')->optionsData(GenderType::select(), 'name', 'key');
 ```
+
 ```html
 <select name="gender">
 <option vlaue="m">男</option>
@@ -45,11 +50,13 @@ $form->select('gender','性别')->optionsData(GenderType::select(), 'name', 'key
 <option vlaue="n">未知</option>
 </select>
 ```
+
 //指定text，主键id作为key:
 
 ```php
 $form->select('gender','性别')->optionsData(GenderType::select(), 'name');
 ```
+
 ```html
 <select name="gender">
 <option vlaue="1">男</option>
@@ -61,6 +68,7 @@ $form->select('gender','性别')->optionsData(GenderType::select(), 'name');
 注意：`optionsData`的驱动表尽量结果集较少的表，对于数据较多的表应使用其他替代方法。
 
 如表单中：
+
 ```php
 $form->select('type_id','类型')->optionsData(Type::select(), 'name', 'id');//Type表数据较少，可以使用
 //$form->select('member_id','会员')->optionsData(Member::select(), 'nicknname', 'id');//不推荐，会员数量很多，全部查询出来不划算
@@ -68,6 +76,7 @@ $form->select('member_id','会员')->dataUrl(url('/admin/member/selectPage')); /
 ```
 
 如表格中：
+
 ```php
 $table->match('type_id','类型')->optionsData(Type::select(), 'name', 'id');//Type表数据较少，可以使用
 //$table->match('member_id','会员')->optionsData(Member::select(), 'nicknname', 'id');//不推荐

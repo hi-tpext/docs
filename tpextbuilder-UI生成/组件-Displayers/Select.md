@@ -1,10 +1,10 @@
-下拉选择
+# 下拉选择
 
 `HasOptions`　trait 为`Checkbox` `Radio` `Select` `DualListbox` `MultipleSelect` `Match` `Matches` 共有。
 
-主要方法：
+## 主要方法
 
-```
+```php
 //是否使用增强的select2，默认为使用
 public function select2($use){}
 
@@ -20,6 +20,7 @@ public function jsOptions($options){}
 //联动，当此select的选值改变时，nextSelect会重新加载，nextSelect必须设置了ajax加载url
 public function withNext($nextSelect){}
 ```
+
 HasOptions　trait 为[Checkbox][Radio][Select][MultipleSelect][Match][Matches]共有。
 
 ### 关于联动
@@ -33,18 +34,23 @@ HasOptions　trait 为[Checkbox][Radio][Select][MultipleSelect][Match][Matches]�
  //省份变化了，会以选中的省份值作为参数去请求`api/areacity/city`把下面的城市列出来，
  //城市变化也类似
 ```
+
 相当于：
+
 ```php
-$area = $search->select('area', '地区')->dataUrl(url('api/areacity/area'), 'ext_name');
-$city = $search->select('city', '城市')->dataUrl(url('api/areacity/city'), 'ext_name')->withNext($area);
-$search->select('province', '省份')->dataUrl(url('api/areacity/province'), 'ext_name')->withNext($city);
+$province = $search->select('province', '省份')->dataUrl(url('api/areacity/province'), 'ext_name');
+$city = $search->select('city', '城市')->dataUrl(url('api/areacity/city'), 'ext_name')->withPrev($area);
+$area = $search->select('area', '地区')->dataUrl(url('api/areacity/area'), 'ext_name')->withPrev($city);
 ```
-但一般不这么用
+
+但一般不这么用，除非这几个字段被其他字段分开了，位置上没有连在一起，到仍然保持联动效果。
 
 ### ajax 数据源
-`tpext\builder\traits\actions\HasIndex`已内置了以当前控制器模型`$dataModel`为基础的selectPage
+
+`tpext\builder\traits\actions\HasIndex`已内置了以当前控制器模型`$dataModel`为基础的[selectPage]
 
 如有控制器：`\app\admin\controller\Member`
+
 ```php
 <?php
 
@@ -82,9 +88,10 @@ class Member extends Controller
 }
 ```
 
-那么可以：`$search->select('member_id', '会员')->dataUrl(url('/admin/member/selectPage'));`
+那么其他页面可以：`$search->select('member_id', '会员')->dataUrl(url('/admin/member/selectPage'));`
 
 显示：
+
 ```html
 <select name="member_id">
 <option vlaue="1001">1001#小明(13312345678)</option>
@@ -97,7 +104,8 @@ class Member extends Controller
 其他情况可以自己写`action`实现
 
 实例：
-```
+
+```php
 /**
 * Undocumented function
 *
@@ -142,4 +150,16 @@ public function selectPageUser()
         ]
     );
 }
+```
+
+### ajax附带其他字段值
+
+`->withParams($parasm)`;
+
+如：
+
+```php
+$form->radio('type', '人员类型')->options([1=>'男', 2=>'女']);
+$form->select('member_id', '人员')->dataUrl(url('/admin/member/selectPage2'))->withParams('type');
+//每次ajax请求[/admin/member/selectPage2]页面时，都会附带一个参数如[&type=1]，在selectPage2方法中就可以根据此参数，只返回男性或女性的姓名。
 ```
