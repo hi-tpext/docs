@@ -43,7 +43,33 @@ $city = $search->select('city', '城市')->dataUrl(url('api/areacity/city'), 'ex
 $area = $search->select('area', '地区')->dataUrl(url('api/areacity/area'), 'ext_name')->withPrev($city);
 ```
 
-但一般不这么用，除非这几个字段被其他字段分开了，位置上没有连在一起，到仍然保持联动效果。
+但一般不这么用，除非这几个字段被其他字段分开了，位置上没有连在一起，但仍然想保持联动效果。
+
+### 配合fields使用
+
+最好用`fields`包围起来，使多个联动字段组合起来，共享一个左边的`label`然后平分右边`fields`，这样布局更容易。
+
+如：
+
+```php
+$form->fields('省/市/区');
+$form->select('province', ' ', 4)->size(0, 12)->showLabel(false)->dataUrl(url('api/areacity/province'), 'ext_name')->withNext(
+    $form->select('city', ' ', 4)->size(0, 12)->showLabel(false)->dataUrl(url('api/areacity/city'), 'ext_name')->withNext(
+        $form->select('area', ' ', 4)->size(0, 12)->showLabel(false)->dataUrl(url('api/areacity/area'), 'ext_name')
+    )
+);
+$form->fieldsEnd();
+
+//或：
+
+$form->fields('省/市/区')->with(
+    $form->select('province', ' ', 4)->size(0, 12)->showLabel(false)->dataUrl(url('api/areacity/province'), 'ext_name')->withNext(
+        $form->select('city', ' ', 4)->size(0, 12)->showLabel(false)->dataUrl(url('api/areacity/city'), 'ext_name')->withNext(
+            $form->select('area', ' ', 4)->size(0, 12)->showLabel(false)->dataUrl(url('api/areacity/area'), 'ext_name')
+        )
+    );
+);
+```
 
 ### ajax 数据源
 
@@ -159,7 +185,7 @@ public function selectPageUser()
 如：
 
 ```php
-$form->radio('type', '人员类型')->options([1=>'男', 2=>'女']);
+$form->radio('type', '人员类型')->options([1 => '男', 2 => '女']);
 $form->select('member_id', '人员')->dataUrl(url('/admin/member/selectPage2'))->withParams('type');
 //每次ajax请求[/admin/member/selectPage2]页面时，都会附带一个参数如[&type=1]，在selectPage2方法中就可以根据此参数，只返回男性或女性的姓名。
 ```

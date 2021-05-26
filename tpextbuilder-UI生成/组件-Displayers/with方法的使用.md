@@ -18,7 +18,7 @@
 
 `with([$field1, $field2, $field3, $fieldN, ]);`
 
-- 3. 作为匿名方法种的语句
+- 3. 作为匿名方法中的语句
 
 `with(function($form){$field1;$field2;$field3;$fieldN;});`
 
