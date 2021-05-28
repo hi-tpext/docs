@@ -66,9 +66,9 @@ $form->checkbox('test2', '测试2')->options(['type1' => '选项1', 'type2' => '
 
 ### when的使用
 
-基本格式`when($cases, ...$fields)`;
+基本格式`when($cases, ...$toggleFields)`;
 
-第二参数`$fields`的3种使用方式：
+第二参数`$toggleFields`的3种使用方式：
 
 - 1. 作为可变参数：
 
@@ -109,23 +109,23 @@ $form->radio('test1', '测试1')->options(['1' => '选项1', '2' => '选项2', '
     );
 ```
 
-若第二参数`$fields`不传，则可再调用`toggleFields(...$fields)`方法。
+若第二参数`$toggleFields`不传，则可再调用`with(...$toggleFields)`方法。
 
 ```php
 $form->radio('test1', '测试1')->options(['1' => '选项1', '2' => '选项2', '3' => '选项3', '4' => '选项4'])->default(1)
-    ->when(1)->toggleFields(
+    ->when(1)->with(
         $form->text('test_1_a', 'test_1_a')->required(),
         $form->textarea('test_1_b', 'test_1_b'),
         //... 更多字段
     )
-    ->when(2)->toggleFields(
+    ->when(2)->with(
        [
             $form->text('test_1_c', 'test_1_c')->required(),
             $form->textarea('test_1_d', 'test_1_d'),
             //... 更多字段
         ]
     )
-    ->when([3, 4])->toggleFields(function(\tpext\builder\common\Form $_form) use ($form){
+    ->when([3, 4])->with(function(\tpext\builder\common\Form $_form) use ($form){
             //$_form 和 $form 是同一个东西，实际中使用其中一种方式即可。
             $_form->text('test_1_e', 'test_1_e')->required();
             $form->textarea('test_1_f', 'test_1_f');
@@ -135,7 +135,7 @@ $form->radio('test1', '测试1')->options(['1' => '选项1', '2' => '选项2', '
 
 #### 注意，第二个参数`$fields`的传入时机
 
-要么`when`的时候传入，要么`when`的时候不传，然后再调用`toggleFields`传入。不要两种方式同时使用，如下面的用法是错误的:
+要么`when`的时候传入，要么`when`的时候不传，然后再调用`with`方法传入。不要两种方式同时使用，如下面的用法是错误的:
 
 ```php
 $form->radio('test1', '测试1')->options(['1' => '选项1', '2' => '选项2', '3' => '选项3', '4' => '选项4'])->default(1)
@@ -143,7 +143,7 @@ $form->radio('test1', '测试1')->options(['1' => '选项1', '2' => '选项2', '
         1,
         $form->text('test_1_a', 'test_1_a')->required(),
         //... 更多字段
-    )->toggleFields(
+    )->with(
        [
             $form->text('test_1_b', 'test_1_b'),
             $form->textarea('test_1_c', 'test_1_c'),
@@ -152,7 +152,7 @@ $form->radio('test1', '测试1')->options(['1' => '选项1', '2' => '选项2', '
     );
 ```
 
-### 拓展用法，利用`toggleFields`实现分散布局
+### 拓展用法，利用`with`实现分散布局
 
 ```php
 $text1 = $form->text('test_1_a', 'test_1_a')->required();
@@ -162,21 +162,21 @@ $radio1 = $form->radio('test1', '测试1')->options(['1' => '选项1', '2' => '�
 $text2 = $form->text('test_1_b', 'test_1_b')->required();
 $text3 = $form->text('test_1_c', 'test_1_c')->required();
 //
-$radio1->when(1)->toggleFields($text1, $text2);
-$radio1->when(2)->toggleFields($text3);
-//text1,text2,text3在文档中的位置相对于radio1有前有后是分散开的，如果在when中传入，那位置是受限的，使用`toggleFields`则更灵活。
+$radio1->when(1)->with($text1, $text2);
+$radio1->when(2)->with($text3);
+//text1,text2,text3在文档中的位置相对于radio1有前有后是分散开的，如果在when中传入，那位置是受限的，使用`with`则更灵活。
 ```
 
 ### 切换fields
 
 ```php
 $form->radio('test1', '测试1')->options(['1' => '选项1', '2' => '选项2'])->default(1)
-    ->when(1)->toggleFields(
+    ->when(1)->with(
         $form->left(12)->with(
             //fields
         )
     )
-    ->when(2)->toggleFields(
+    ->when(2)->with(
         $form->left(12)->with(
             //fields
         )
