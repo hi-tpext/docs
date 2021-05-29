@@ -209,6 +209,7 @@ $table->useActionbar(false);
 ```
 
 >手动设置
+
 ```php
 //编辑
 btnEdit($url = '', $label = '', $class = 'btn-primary', $icon = 'mdi-lead-pencil', $attr = 'title="编辑"')
@@ -236,11 +237,12 @@ btnLink($name = '', $url, $label = '', $class = 'btn-secondary', $icon = '', $at
 
 - `url('demo', ['id' => '__data.pk__']);`
 
-- `相当于 url('demo', ['id'=>'__data.id__']);`
+- 相当于 `url('demo', ['id'=>'__data.id__']);`，因为`pk`代表当前的主键。
 
 - 其他参数：`__data.字段名__`
 
-  如：url('demo', ['id' => '__data.id__', 'type' => '__data.type__', 'status' => 1]);`
+  如：`url('demo', ['id' => '__data.id__', 'type' => '__data.type__', 'status' => 1]);`
+
 ```php
 //添加一个操作，自动附带当前列id参数post到`$postUrl`，`$confirm` 操作前是否显示确认提示框。
 btnPostRowid($name = '', $postUrl, $label = '', $class = 'btn-secondary', $icon = 'mdi-checkbox-marked-outline', $attr = '', $confirm = true)
@@ -254,6 +256,7 @@ $table->getActionbar()
     ->btnEnableAndDisable()
     ->btnView()
     ->btnDelete()
+    ->btnPostRowid('clear_errors', url('clearErrors'), '', 'btn-info', 'mdi-backup-restore', 'title="重置登录失败次数"')
     ->mapClass([
         'delete' => ['hidden' => '__h_del__'],//当这行数据的`__h_del__`字段值为真(1或true)时，`enable`这个按钮加上`hidden`的class
         'enable' => ['hidden' => '__h_en__'],
@@ -266,6 +269,10 @@ $table->getActionbar()
         // 更多逻辑 : in_array|not_in_array|eq|gt|lt|egt|elt|strstr|not_strstr
         // eq|gt|lt|egt|elt等价于 =|>|<|>=|<=
         // !in_array 等价于not_in_array,!strstr等价于not_strstr
+
+        // 'enable' => ['hidden' => function ($data) { //闭包，返回真则加上对应的
+        //     return $data['enable'] == 1;
+        // }],
     ]);
 //循环数组去设置
 foreach ($data as &$d) {
