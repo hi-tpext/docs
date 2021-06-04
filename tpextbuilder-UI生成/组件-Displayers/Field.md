@@ -34,19 +34,55 @@
 |`mapClassGroup($GroupArr)` | 样式组匹配 ||
 
 >to
-支持模板变量：{字段名}  {val}
+支持模板变量：{val} 或 {其他字段名}  
 
 如
 
 ```php
-$table->show('name','姓名')->to('{val}#{mobile}')`;//{val}代表当前字段`name`值，{mobile}为这条记录中的`mobile`字段值。
+$table->show('name','姓名')->to('{val}#{mobile}');//{val}代表当前字段`name`值，{mobile}为这条记录中的`mobile`字段值。
 
-$table->raw('link','链接')->to('<a href="{val}">{val}</a>')`;//渲染html要用`raw`或`field`
+$table->raw('link','链接')->to('<a href="{val}">{val}</a>');//渲染html要用`raw`或`field`
 ```
+
+也可使用闭包：
+
+```php
+$table->show('name', '姓名')->to(function ($value, $data) {
+    return $value .'#'. $data['mobile'];//$value为当前字段`status`的值，若要使用其他字段，就使用`$data['field']`
+});
+
+```
+
+>mapClass
 
 `mapClass($values, $class, $field = '', $logic = 'in_array')` 样式匹配
 
+`mapClass(function closure(){...}, $class)` 样式匹配，使用闭包
+
+```php
+$table->match('status','状态')->mapClass(function ($value, $data) {
+    return $value == 1;//$value为当前字段`status`的值，若要使用其他字段，就使用`$data['field']`
+}, 'success');
+```
+
+>mapClass
+
 `mapClassGroup([[$values1, $class1, $field1 = '', $logic1 = 'in_array'], [$values2, $class2, $field2 = '', $logic2 = 'in_array']]])` 批量样式匹配  
+
+`mapClassGroup(['class1' => [$values1, $field1, $logic1], 'class2'=> [$values2, $field2, $logic2], ... ])` 批量样式匹配，`class`作为数组键
+
+`mapClassGroup(['class1' => function closure1(){...}, 'class2'=> function closure2(){...}, ... ])` 批量样式匹配，使用闭包
+
+```php
+$table->match('status','状态')->mapClassGroup([
+    'success' => function ($value, $data) {
+        return $value == 1;//$value为当前字段`status`的值，若要使用其他字段，就使用`$data['field']`
+    }, 
+    'danger' => function ($value, $data) {
+        return $value == 0;
+    }
+]);
+```
 
 如
 
