@@ -133,7 +133,7 @@ $form->radio('test1', '测试1')->options(['1' => '选项1', '2' => '选项2', '
     });
 ```
 
-#### 注意，第二个参数`$fields`的传入时机
+#### 注意，第二个参数`$toggleFields`的传入时机
 
 要么`when`的时候传入，要么`when`的时候不传，然后再调用`with`方法传入。不要两种方式同时使用，如下面的用法是错误的:
 
@@ -185,4 +185,23 @@ $form->radio('test1', '测试1')->options(['1' => '选项1', '2' => '选项2'])-
 
 ### 表单提交
 
-切换后被隐藏的元素，表单提交时是被忽略的，后台获取不到对应的字段
+- 切换后被隐藏的元素，表单提交时是被忽略的，后台获取不到对应的字段
+
+- 可以在不同的`case`里面重复同一个字段
+
+```php
+$form->radio('test1', '测试1')
+    ->when(1)->with(
+        $form->text('test_1', 'test_1')->required()-help('case-1 的test_1'),
+        $form->text('test_2', 'test_2')->required(),
+    )
+    ->when(2)->with(
+        $form->text('test_1', 'test_1')->required()-help('case-2 的test_1'),//不同case的字段重复是允许的，只有其中一个会提交
+        $form->text('test_3', 'test_3')->required(),
+    )
+    ->when(3)->with(
+        $form->text('test_4', 'test_4')->required(),
+    );
+```
+
+- 切换后隐藏的字段js验证暂时取消，重新切换回来后重新生效
