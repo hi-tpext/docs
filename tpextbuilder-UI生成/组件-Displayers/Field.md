@@ -32,6 +32,7 @@
 |`to($tpl)` | 简单的转换 ||
 |`mapClass()` | 样式匹配 ||
 |`mapClassGroup($GroupArr)` | 样式组匹配 ||
+|`rendering($callback)` | 渲染前的回调 ||
 
 >to
 支持模板变量：{val} 或 {其他字段名}  
@@ -65,7 +66,7 @@ $table->match('status','状态')->mapClass(function ($value, $data) {
 }, 'success');
 ```
 
->mapClass
+>mapClassGroup
 
 `mapClassGroup([[$values1, $class1, $field1 = '', $logic1 = 'in_array'], [$values2, $class2, $field2 = '', $logic2 = 'in_array']]])` 批量样式匹配  
 
@@ -133,4 +134,21 @@ span.the-field.cyan {
 span.the-field.yellow {
     color: #fcc525;
 }
+```
+
+>rendering
+
+渲染前的回调，非常具有灵活性
+
+```php
+//实现类似于mapClass的效果,如果表格的某一列数据的姓名是[小明]那么把手机号替换成****，并且加上[danger]样式。
+$table->show('mobile', '手机')->rendering(function ($field) {
+    if ($field->data['name'] == '小明') {
+        $field->addClass('danger');
+        $field->data['mobile'] = '****';
+    }
+});
+
+$table->show('mobile', '手机')->mapClass('小明', 'danger', 'name');
+
 ```

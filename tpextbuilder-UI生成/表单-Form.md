@@ -1,4 +1,7 @@
-###### 支持的组件：
+# form表单
+
+## 支持的组件
+
 ```php
 /**
  * Methods.
@@ -50,22 +53,22 @@
  * Map            map($name, $label = '', $colSize = 12)
  * Items          items($name, $label = '', $colSize = 12)
  */
-//特殊组件
-fields
-items
-tab
-step
-
 ```
-###### field参数说明
 
->$name 字段名称 必填 ,如 `goods_name` 或 `category.name`(关联模型)
+## 特殊组件
 
->$label     显示label ，不填则取name值
+`fields`, `items`, `tab`, `step`
 
->$cloSize   col-md-大小，默认:12
+## field参数说明
 
-###### form常用方法
+`$name` 字段名称 必填 ,如 `goods_name` 或 `category.name`(关联模型)
+
+`$label`     显示label ，不填则取name值
+
+`$cloSize`   col-md-大小，默认:12
+
+## form常用方法
+
 ```php
 //设置字段元素的默认大小，后面创建的元素就不必一个一个去设置大小了。
 $form->defaultDisplayerSize(2, 6);
@@ -97,10 +100,14 @@ $form->btnReset('重&nbsp;&nbsp;置');
 $form->btnBack('返&nbsp;&nbsp;回');
 ```
 
-分组布局
+### 分组布局
+
 建议使用`fields`分组，基于`clo-size`的分组布局不易控制，互相影响。
-假如要分成左右两列：
-1. 使用`fields`:
+
+#### 假如要分成左右两列
+
+1.使用`fields`:
+
 ```php
 //第一组：
 $form->fields('g1', '', 6)->showLabel(false)->size(0, 12);
@@ -117,7 +124,8 @@ $form->select('nation', '民族')->options($nationList);
 $form->fieldsEnd();
 ```
 
-2. 基于`co-sizel`分:
+2.基于`co-sizel`分:
+
 ```php
 $form->defaultDisplayerColSize(6);//设置默认col大小col-md-6，自动分为左右两列。
 

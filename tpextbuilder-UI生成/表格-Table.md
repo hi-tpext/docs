@@ -1,3 +1,7 @@
+# table 表格
+
+## 支持的组件
+
 ```php
 /**
  * Methods.
@@ -35,17 +39,20 @@
  *
  */
 ```
-###### field参数说明
 
->$name 字段名称 必填
+## field参数说明
 
->$label     显示label ，不填则取name值
+`$name` 字段名称 必填
 
->$cloSize   col-md-大小，暂无实际用处
+`$label`     显示label ，不填则取name值
+
+`$cloSize`   col-md-大小，暂无实际用处
 
 - 理论上支持全部`form`组件，但一般来说，使用`show`,`field`,`text`,`Checkbox`,`Radio`,`Select`,`Textarea`等基本够用了。
 - `show`和`field`纯显示，`text`,`Checkbox`等表单元素支持在表格行内修改并失去焦点自动提交【配合autoPost】。
-###### 基本使用
+
+## 基本使用
+
 ```php
 
     $table->show('id', 'ID');
@@ -62,60 +69,65 @@
     )->getWrapper()->addStyle('width:180px');
    
 ```
-###### 常用
 
->show 显示 
+## 常用
 
->raw  显示带html的内容
+- `show()` 显示
 
-###### 支持部分的form组件行内编辑：
+- `raw()`  显示带html的内容
+
+## 支持部分的form组件行内编辑
 
 `text`,`textarea`,`radio`,`select`,`checkbox`
 
-*** 行内编辑续配合 `autoPost($url)`方法使用，`url`参数不传则默认请求到同一个控制器的`autoPost`action
+行内编辑续配合 `autoPost($url)`方法使用，`url`参数不传则默认请求到同一个控制器的[`autoPost`]action
 
+## Toolbar工具栏
 
-###### Toolbar工具栏
-
->默认自动生成[添加 / 批量删除 / 刷新] 即
-```
-btnAdd / btnDelete / btnRefresh
-```
-
-- 基本使用
+> 默认自动生成 [添加 / 批量删除 / 刷新] 即
 
 ```php
-    $table->getToolbar()
-            ->btnAdd()
-            ->btnEnable()
-            ->btnDisable()
-            ->btnDelete()
-            ->btnExport()
-            ->btnExports(['xlxs'=>'xlsx','xls'=>'xls'])
-            ->btnRefresh();
+btnAdd() / btnDelete() / btnRefresh()
 ```
-使用`dropdown actions`
+
+### 完整实列
+
 ```php
-    $table->getToolbar()
-            ->btnAdd()
-            ->btnActions(
-                [
-                    'enable' => ['url' => url('enable', ['state' => 1]), 'label' => '启用'],
-                    'disable' => ['url' => url('enable', ['state' => 0]), 'label' => '禁用'],
-                    'delete' => '删除',
-                ]
-            )
-            ->btnExport()
-            ->btnExports(['xlxs'=>'xlsx','xls'=>'xls'])
-            ->btnRefresh();
+$table->getToolbar()
+    ->btnAdd()
+    ->btnEnable()
+    ->btnDisable()
+    ->btnDelete()
+    ->btnExport()
+    ->btnExports(['xlxs'=>'xlsx','xls'=>'xls'])
+    ->btnRefresh();
 ```
->禁用工具栏
+
+### 使用 `dropdown actions`
+
+```php
+$table->getToolbar()
+    ->btnAdd()
+    ->btnActions(
+        [
+            'enable' => ['url' => url('enable', ['state' => 1])，'label' => '启用'],
+            'disable' => ['url' => url('enable', ['state' => 0]), 'label' => '禁用'],
+            'delete' => '删除',
+        ]
+    )
+    ->btnExport()
+    ->btnExports(['xlxs'=>'xlsx','xls'=>'xls'])
+    ->btnRefresh();
+```
+
+### 禁用工具栏
 
 ```php
 $table->useToolbar(false);
 ```
 
->手动设置
+### 手动设置
+
 ```php
 
 //添加
@@ -143,7 +155,8 @@ btnExport($postUrl = '', $label = '导出', $class = 'btn-pink', $icon = 'mdi-ex
 btnExports($items, $postUrl = '', $label = '导出', $class = 'btn-secondary', $icon = 'mdi-export', $attr = 'title="导出"')
 
 ```
->其他，如果上面的不够用，你可以自己添加
+
+>其他，如果上面的不够用，你可以添加自定义按钮
 
 ```php
 //添加一个链接，打开$ulr
@@ -161,12 +174,14 @@ btnOpenChecked($url, $label = '', $class = 'btn-secondary', $icon = 'mdi-checkbo
 //$ids = input('get.ids');
 ```
 
-********************
-###### Actionbar动作栏
+---
 
->默认自动生成[编辑 / 删除] 即
-```
-btnEdit / btnDelete
+## Actionbar动作栏
+
+>默认自动生成 [编辑 / 删除] 即
+
+```php
+btnEdit() / btnDelete()
 ```
 
 - 基本使用
@@ -183,23 +198,25 @@ btnEdit / btnDelete
                 'disable' => ['hidden' => '__h_dis__'],
             ]);
 ```
-使用`dropdown actions`
+
+### 使用`dropdown actions`
+
 ```php
-     $table->getActionbar()
-            ->btnEdit()
-            ->btnActions(
-                [
-                    'enable' => ['url' => url('enable', ['state' => 1]), 'label' => '启用'],
-                    'disable' => ['url' => url('enable', ['state' => 0]), 'label' => '禁用'],
-                    'delete' => '删除',
-                    'view' => ['url' => url('view', ['id' => '__dat.pk__']), 'label' => '查看','confirm' => '2'],
-                ]
-            )
-            ->mapClass([
-                'delete' => ['hidden' => '__h_del__'],
-                'enable' => ['hidden' => '__h_en__'],
-                'disable' => ['hidden' => '__h_dis__'],
-            ]);
+$table->getActionbar()
+    ->btnEdit()
+    ->btnActions(
+        [
+            'enable' => ['url' => url('enable', ['state' => 1]), 'label' => '启用'],
+            'disable' => ['url' => url('enable', ['state' => 0]), 'label' => '禁用'],
+            'delete' => '删除',
+            'view' => ['url' => url('view', ['id' => '__dat.pk__']), 'label' => '查看','confirm' => '2'],
+        ]
+    )
+    ->mapClass([
+        'delete' => ['hidden' => '__h_del__'],
+        'enable' => ['hidden' => '__h_en__'],
+        'disable' => ['hidden' => '__h_dis__'],
+    ]);
 ```
 
 >禁用
@@ -227,7 +244,7 @@ btnDisable($postUrl = '', $label = '', $class = 'btn-warning', $icon = 'mdi-bloc
 btnEnable($postUrl = '', $label = '', $class = 'btn-success', $icon = 'mdi-check', $confirm = true, $attr = 'title="启用"')
 ```
 
->其他，如果上面的不够用，你可以自己添加
+>其他，如果上面的不够用，你可以自己添加自定义按钮
 
 ```php
 
@@ -248,7 +265,7 @@ btnLink($name = '', $url, $label = '', $class = 'btn-secondary', $icon = '', $at
 btnPostRowid($name = '', $postUrl, $label = '', $class = 'btn-secondary', $icon = 'mdi-checkbox-marked-outline', $attr = '', $confirm = true)
 ```
 
->控制action的显示禁用
+> 控制`action`的显示禁用
 
 ```php
 $table->getActionbar()
@@ -285,15 +302,39 @@ unset($d);
 
 - `delete|enable|disable`按钮名称，如果是自定义[btnLink/btnPostRowid]则为传入的`$name`.
 - '`hidden`' => '`__h_del__`'，当这一条记录的`__h_del__`值为真时，这个action会加上`hidden`这个class
+
 - 同理，可以加上`disabled`
-```
+
+```php
 'enable' => ['disabled' => '__dis_en__'],
 ```
 
-### addTop / addBottom ,顶部或底部内容
+### `ActionBtn`的`label`支持使用变量
+
+如`评论({comments_count})` => `评论(12)`
+
+模型定义一个获取器：
 
 ```php
-$table->addTop()->content()->fetch('demo');
+class ShopGoods extends Model
+{
+    public function getCommentCountAttr($value, $data)
+    {
+        return ShopGoodsComment::where(['goods_id' => $data['id']])->count();
+    }
+}
+```
 
-$table->addBottom()->content()->display('{name}', ['name' => 'jim']);
+```php
+$table->getActionbar()
+    ->btnEdit()
+    ->btnLink('comments', url('/admin/shopgoodscomment/index', ['goods_id' => '__data.pk__']), '评论{comments_count}', 'btn-warning', 'mdi-comment-processing-outline')
+```
+
+## addTop / addBottom ,顶部或底部内容
+
+```php
+$table->addTop()->content()->fetch('demo', ['name' => '小明']);
+
+$table->addBottom()->content()->display('我的名字叫{name}', ['name' => '小明']);
 ```
