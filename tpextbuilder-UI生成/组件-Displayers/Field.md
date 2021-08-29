@@ -8,7 +8,7 @@
 {$value|raw}
 ```
 
-`form`中使用：无`label`, 不支持`col-md-n`大小控制。
+`table`中使用：无`label`, 不支持`col-md-n`大小控制。
 
 ### 主要通用方法
 
