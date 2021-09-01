@@ -39,7 +39,7 @@ class Admin extends Controller
      */
     protected function filterWhere()
     {
-        $searchData = request()->post();
+        $searchData = request()->get();
 
         $where = [];
         //构建搜索条件
