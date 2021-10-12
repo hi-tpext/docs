@@ -49,7 +49,7 @@ $table->raw('link','链接')->to('<a href="{val}">{val}</a>');//渲染html要用
 
 ```php
 $table->show('name', '姓名')->to(function ($value, $data) {
-    return $value .'#'. $data['mobile'];//$value为当前字段`status`的值，若要使用其他字段，就使用`$data['field']`
+    return $value .'#'. $data['mobile'];//$value为当前字段`name`的值，若要使用其他字段，就使用`$data['field']`
 });
 
 ```
