@@ -190,7 +190,7 @@ $form->radio('test1', '测试1')->options(['1' => '选项1', '2' => '选项2'])-
 - 可以在不同的`case`里面重复同一个字段
 
 ```php
-$form->radio('test1', '测试1')
+$form->radio('test1', '测试1')->options(['1' => '选项1', '2' => '选项2', '3' => '选项3'])
     ->when(1)->with(
         $form->text('test_1', 'test_1')->required()-help('case-1 的test_1'),
         $form->text('test_2', 'test_2')->required(),

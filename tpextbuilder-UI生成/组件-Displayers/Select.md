@@ -188,4 +188,5 @@ public function selectPageUser()
 $form->radio('type', '人员类型')->options([1 => '男', 2 => '女']);
 $form->select('member_id', '人员')->dataUrl(url('/admin/member/selectPage2'))->withParams('type');
 //每次ajax请求[/admin/member/selectPage2]页面时，都会附带一个参数如[&type=1]，在selectPage2方法中就可以根据此参数，只返回男性或女性的姓名。
+//$parasm参数可为多个，用`,`分割，如：->withParams('type,age');
 ```
