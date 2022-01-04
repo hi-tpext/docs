@@ -190,6 +190,7 @@ btnEdit() / btnDelete()
      $table->getActionbar()
             ->btnEdit()
             ->btnEnable()
+            ->br()//换行
             ->btnDisable()
             ->btnDelete()
             ->mapClass([
