@@ -102,11 +102,25 @@ $form->btnBack('返&nbsp;&nbsp;回');
 
 ### 分组布局
 
-建议使用`fields`分组，基于`clo-size`的分组布局不易控制，互相影响。
+建议使用`fields`分组，基于`clo-size`的分组布局不易控制，高度不同会互相影响。
 
 #### 假如要分成左右两列
 
-1.使用`fields`:
+1.基于`co-sizel`分:
+
+```php
+$form->defaultDisplayerColSize(6);//设置默认col大小col-md-6，自动分为左右两列。
+
+$form->text('nickname', '姓名');
+$form->text('mobile', '手机号')->maxlength(11);
+$form->select('department_id', '部门')->options($departList);
+$form->image('avatar', '照片');//图片高度与其他的不同，容易影响布局
+$form->text('school', '学校');
+$form->select('nation', '民族')->options($nationList);
+
+```
+
+2.使用`fields`:
 
 ```php
 //第一组：
@@ -124,16 +138,20 @@ $form->select('nation', '民族')->options($nationList);
 $form->fieldsEnd();
 ```
 
-2.基于`co-sizel`分:
+[推荐]3.使用`left/right()`，方法2的升级版
 
 ```php
-$form->defaultDisplayerColSize(6);//设置默认col大小col-md-6，自动分为左右两列。
+$form->left(6)->with(function () use ($form) {
+	$form->text('nickname', '姓名');
+	$form->text('mobile', '手机号')->maxlength(11);
+	$form->select('department_id', '部门')->options($departList);
+});
 
-$form->text('nickname', '姓名');
-$form->text('mobile', '手机号')->maxlength(11);
-$form->select('department_id', '部门')->options($departList);
-$form->image('avatar', '照片');//图片高度与其他的不同，容易影响布局
-$form->text('school', '学校');
-$form->select('nation', '民族')->options($nationList);
-
+$form->right(6)->with(
+    $form->image('logo', '封面图')->required()->mediumSize(),
+    $form->text('share_commission', '分销佣金')->default(0),
+    $form->text('market_price', '市场价', 4),
+    $form->text('cost_price', '成本价', 4)
+);
+//注意两种方式with里面的不同
 ```

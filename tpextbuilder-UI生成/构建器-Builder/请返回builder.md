@@ -12,7 +12,8 @@ return $builder->content()->display('<p>' . '未能读取文件:' . $fileurl . '
 $builder = $this->builder('出错了');
 $builder->content()->display('<p>' . '未能读取文件:' . $fileurl . '</p>');
 //正确
-return $builder->render();
+//return $builder->render();
+return $builder;
 ```
 
 特殊：`layer系列`

@@ -90,3 +90,5 @@ protected function buildSearch()
 $search->addTop()->content()->fetch('demo');
 
 $search->addBottom()->content()->display('{name}', ['name' => 'jim']);
+
+```

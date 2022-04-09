@@ -1,4 +1,6 @@
 ```php
+//用户添加自己的js/css 不要直接使用[$builder->AddJs()/$builder->addCss()]，这两个方法一般用于添加displayer等组件的资源，全局需要，会被minify压缩为一个min.js和一个min.css
+
 //在当前页面引入一个js文件
 //如：
 $builder->customJs('/static/admin/js/my.js');
@@ -23,14 +25,14 @@ $builder->addStyleSheet('
 }
 ');
 
-//在当前页面显示一个顶部通知消息
+//在当前页面显示一个顶部通知消息，(仅GET请求时)
 //如：
 $builder->notify('您未完善个人信息');
 
 //关闭当前layer弹出层
 layer()->close($success = true, $msg = '操作成功');
 
-//关闭当前layer弹出层，并刷新上一级页面
+//关闭当前layer弹出层，并刷新上一级页面列表
 layer()->closeRefresh($success = true, $msg = '操作成功');
 
 //关闭当前layer弹出层，并刷让上一级页面跳转到一个新的url
