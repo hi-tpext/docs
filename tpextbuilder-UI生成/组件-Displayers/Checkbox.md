@@ -19,7 +19,7 @@ public function blockStyle($val = true)
 
 ```php
 $form->checkbox('attr', '属性')
-    ->class('checkbox-warning')//颜色主题
+    ->adddClass('checkbox-warning')//颜色主题
     ->blockStyle()//显示为块状
     ->checkallBtn()//显示[全选]按钮
     ->options(['is_recommend' => '推荐', 'is_hot' => '热门', 'is_top' => '置顶']);

@@ -16,12 +16,12 @@ public function blockStyle($val = true)
 
 ```php
 $form->radio('on_sale', '上架')
-    ->class('radio-warning')//颜色主题
+    ->adddClass('radio-warning')//颜色主题
     ->blockStyle()//显示为块状
     ->options([1 => '已上架', 0 => '未上架'])->default(0);
 ```
 
-`checkbox-warning`，其中[warning]为颜色主题，所有可选主题如下：
+`radio-warning`，其中[warning]为颜色主题，所有可选主题如下：
 
 - primary（主色）
 - success（成功）
